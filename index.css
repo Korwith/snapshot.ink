@@ -219,3 +219,14 @@ header {
 * {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
+
+@media screen and (max-width: 767px) {
+    .content_holder {
+        width: 100vw;
+    }
+
+    .content_frame {
+        width: calc(50vw - 10px);
+        height: calc(50vw - 10px)
+    }
+}

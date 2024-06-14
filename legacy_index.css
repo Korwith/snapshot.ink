@@ -1,0 +1,233 @@
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #101010;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background-color: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+}
+
+body {
+    background-color: #000;
+    margin: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 0;
+}
+
+#placeholder {
+    display: none;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 55px;
+    background-color: #101010;
+    box-shadow: #101010 0px 2px 4px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: flex-start;
+    z-index: 500;
+}
+
+.title_holder {
+    height: 100%;
+    width: fit-content;
+    display: flex;
+    margin-right: 10px;
+}
+
+.title_holder .icon {
+    flex: 0 0 auto;
+    aspect-ratio: 1/1;
+    height: calc(100% - 10px);
+    margin: 5px;
+    background-size: 90%;
+    background-image: url(icon/camera.png);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.title_holder .title {
+    display: flex;
+    padding-left: 8px;
+    padding-right: 8px;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: 900;
+    font-size: 1.4rem;
+    user-select: none;
+}
+
+.button_select {
+    height: 100%;
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+.button_select div {
+    margin-top: 8px;
+    margin-bottom: 8px;
+    height: calc(100% - 16px);
+    width: 140px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    display: flex;
+    user-select: none;
+}
+
+.button_select div.active {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.button_select div.dropdown {
+    padding-right: 0;
+    padding-left: 10px;
+}
+
+.button_select div span {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    font-weight: 900;
+    flex: 1;
+    float: left;
+    pointer-events: none;
+}
+
+.button_select div .icon {
+    aspect-ratio: 1/1;
+    flex: 0 0 auto;
+    height: calc(100% - 20px);
+    margin: 10px;
+    float: right;
+    background-size: 70%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url(icon/dropdown.svg);
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    pointer-events: none;
+}
+
+.button_select div:hover {
+    background-color: rgba(255, 255, 255, 0.07);
+}
+
+.content_holder {
+    transform: translateY(55px);
+    height: calc(100vh - 55px);
+    width: 55vw;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: flex-start;
+}
+
+.content_holder.image_hovered .content_frame::after {
+    filter: brightness(0.5);
+}
+
+.seperator {
+    width: calc(100% - 15px);
+    height: 30px;
+    display: flex;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+.seperator.hide {
+    display: none;
+}
+
+.seperator_text {
+    user-select: none;
+    flex: 0 0 auto;
+    width: fit-content;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding-right: 15px;
+    font-weight: 900;
+}
+
+.seperator hr {
+    border: 0;
+    margin: 0;
+    height: 2px;
+    background-color: white;
+    margin-top: auto;
+    margin-bottom: auto;
+    flex: 1;
+}
+
+.content_frame {
+    height: 240px;
+    width: 240px;
+    cursor: pointer;
+    position: relative;
+    margin: 4px;
+}
+
+.content_frame::after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    border: 3px solid rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+    transition: width 0.2s, height 0.2s, filter 0.2s;
+    background-image: var(--preview_url);
+    background-size: cover;
+}
+
+.content_frame:hover::after {
+    width: 110%;
+    height: 110%;
+    z-index: 999;
+    filter: none !important;
+}
+
+* {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+@media screen and (max-width: 767px) {
+    .content_holder {
+        width: 100vw;
+        height: calc(100dvh - 55px);
+    }
+
+    .content_frame {
+        width: calc(50vw - 10px);
+        height: calc(50vw - 10px)
+    }
+}

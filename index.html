@@ -1,48 +1,48 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <title>snapshot.ink</title>
+        <link rel="stylesheet" href="index.css">
+    </head>
 
-<head>
-    <title>snapshot.ink</title>
-    <link rel="stylesheet" href="index.css">
-    <link rel="icon" type="image/x-icon" href="/icon/camera.png">
-    <meta charset="UTF-8">
-    <meta name="description" content="Collection of favorite moments and events.">
-    <meta name="keywords" content="photos, videos, photography, camera, archive, social, personal website">
-    <meta name="author" content="kircic">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property=”og:title” content="snapshot.ink">
-    <meta property=”og:description” content="Collection of favorite moments and events.">
-    <meta property=”og:type” content="webpage">
-    <meta property=”og:image” content="https://www.snapshot.ink/icon/camera.png">
-    <meta property=”og:url” content="https://www.snapshot.ink">
-    <meta property=”og:site_name” content="snapshot.ink">
-</head>
+    <body>
+        <header>
+            <div class="site_name">
+                <div class="icon"></div>
+                <span class="title">snapshot.ink</span>
+            </div>
+        </header>
 
-<body>
-    <header>
-        <div class="title_holder">
-            <div class="icon"></div>
-            <span class="title">snapshot.ink</span>
-        </div>
+        <div class="content_holder"></div>
 
-        <div class="button_select">
-            <div class="dropdown">
-                <span>Sort by Date</span>
-                <nav class="icon"></nav>
+        <div class="entry" id="placeholder">
+            <div class="entry_header">
+                <div class="icon"></div>
+                <span class="title">Downtown Frederick</span>
+            </div>
+
+            <div class="entry_media">
+                <nav class="button_overlay">
+                    <div class="shift_left"></div>
+                    <div class="shift_right"></div>
+                </nav>
+
+                <div class="info_overlay">
+                    <div class="info_holder">
+                        <div class="icon date"></div>
+                        <span class="info date">11/28/21</span>
+                    </div>
+
+                    <div class="info_holder featured_holder">
+                        <div class="icon person"></div>
+                        <span class="info person">Riley & Paris</span>
+                    </div>
+                </div>
+
+                <div class="photo_select hide"></div>
             </div>
         </div>
-    </header>
 
-    <div class="content_holder">
-
-    </div>
-
-    <div id='placeholder' class="seperator">
-        <div class="seperator_text">June 12th, 2024</div>
-        <hr>
-    </div>
-
-    <script src="handle.js"></script>
-</body>
-
+        <script src="handle.js"></script>
+    </body>
 </html>

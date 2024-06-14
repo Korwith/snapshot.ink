@@ -1,6 +1,3 @@
-const content_holder = document.querySelector('.content_holder');
-const placeholder_seperator = document.querySelector('#placeholder');
-const header_button = document.querySelectorAll('header .button_select');
 const image_data = {
     '06/09/24': [1175, 1186, 1188, 1193, 1198, 1199, 1203, 1209],
     '08/16/22': ['0494', '0501', '0506', '0509', '0522', '0526', '0534', '0539'],
@@ -9,93 +6,110 @@ const image_data = {
     '11/28/21': [1043, 1074, 1213, 1307, 1311, 1314],
 }
 const date_title = {
-    '11/28/21': 'Downtown Frederick w/ Paris',
-    '07/21/22': 'Hershey Park w/ Riley',
-    '08/06/22': 'Downtown Frederick w/ Riley',
-    '08/16/22': 'Downtown Frederick Walk',
+    '11/28/21': 'Downtown Frederick',
+    '07/21/22': 'Hershey Park',
+    '08/06/22': 'Downtown Frederick',
+    '08/16/22': 'Downtown Frederick',
     '06/09/24': 'Railroad Tracks & Monocacy River',
 }
-
-let active_button;
-
-function assignHeaderFunction() {
-    function buttonClicked(event) {
-        if (active_button == event.target) { return false };
-        if (active_button) {
-            active_button.classList.remove('active');
-        }
-        event.target.classList.add('active');
-        active_button = event.target;
-    }
-
-    for (var i = 0; i < header_button.length; i++) {
-        let this_button = header_button[i];
-        this_button.onclick = buttonClicked;
-    }
+const included_people = {
+    '11/28/21': 'Paris',
+    '07/21/22': 'Riley',
+    '08/06/22': 'Riley',
+    '06/09/24': 'Paris'
 }
 
-function addSeperator(date) {
-    let clone = placeholder_seperator.cloneNode(true);
-    let clone_text = clone.querySelector('.seperator_text');
-    clone.removeAttribute('id');
-    clone_text.innerHTML = `${date}: ${date_title[date]}`
-    content_holder.appendChild(clone);
-}
+const content_holder = document.querySelector('.content_holder');
+const placeholder = document.querySelector('#placeholder');
 
-function loadAlbum(date) {
-    if (!date) { return false };
+function makeAlbum(date) {
     let this_data = image_data[date];
-    addSeperator(date);
+    let this_title = date_title[date];
+    let this_people = included_people[date];
 
-    for (var i = 0; i < this_data.length; i++) {
-        let image_id = this_data[i];
-        let preview_url = `url(media/preview/IMG_${image_id}.jpg)`;
-        let full_url = `url(media/full/IMG_${image_id}.jpg)`;
+    let clone = placeholder.cloneNode(true);
+    let clone_media = clone.querySelector('.entry_media');
+    let clone_photo_select = clone.querySelector('.photo_select');
+    let clone_title = clone.querySelector('.entry_header .title');
+    let clone_date = clone.querySelector('.info.date');
+    let clone_featured_holder = clone.querySelector('.featured_holder');
+    let clone_featured = clone.querySelector('.info.person');
+    let clone_back = clone.querySelector('.shift_left');
+    let clone_next = clone.querySelector('.shift_right');
 
-        let content_frame = document.createElement('div');
-        content_frame.classList.add('content_frame');
-        content_holder.appendChild(content_frame);
-
-        content_frame.style.setProperty('--preview_url', preview_url);
-        content_frame.addEventListener('mouseenter', imageHovered);
-        content_frame.addEventListener('mouseleave', imageUnhovered);
-        content_frame.addEventListener('mousedown', imageClick);
-    }
-}
-
-function imageHovered() {
-    content_holder.classList.add('image_hovered')
-}
-
-function imageUnhovered() {
-    content_holder.classList.remove('image_hovered');
-}
-
-function imageClick() {
-
-}
-
-const image_keys = Object.keys(image_data);
-let current_key = 0;
-function handleLoading() {
-    if (current_key >= image_keys.length) { return false };
-    let next_key = current_key + 2;
-
-    for (var i = current_key; i < next_key; i++) {
-        loadAlbum(image_keys[i]);
-        current_key++;
+    let preview = `url(media/preview/IMG_${this_data[0]}.jpg)`;
+    let full = `url(media/ful/IMG_${this_data[0]}.jpg)`;
+    
+    clone_title.innerHTML = this_title;
+    clone_date.innerHTML = date;
+    if (this_people) {
+        clone_featured.innerHTML = 'w/ ' + this_people;
+    } else {
+        clone_featured_holder.classList.add('hide');
     }
 
-    console.log(current_key)
+    if (this_data.length > 1) {
+        for (var i = 0; i < this_data.length; i++) {
+            let dot_div = document.createElement('div');
+            clone_photo_select.appendChild(dot_div);
+            if (i >= 1) { continue };
+            dot_div.classList.add('active');
+        }
+        clone_photo_select.classList.remove('hide');
+    }
+
+    clone.removeAttribute('id');
+    clone.setAttribute('index', 0);
+    clone.setAttribute('max', this_data.length);
+    clone.setAttribute('date', date);
+    clone_media.style.setProperty('--preview_url', preview);
+    content_holder.appendChild(clone);
+    
+    (function(clone, clone_back, clone_next) {
+        clone_back.onclick = function() {
+            backPhoto(clone);
+        }
+
+        clone_next.onclick = function() {
+            nextPhoto(clone);
+        }
+    })(clone, clone_back, clone_next);
 }
 
-assignHeaderFunction();
-handleLoading();
+function backPhoto(clone) {
+    let photo_index = parseInt(clone.getAttribute('index'));
+    if (photo_index <= 0) { return false };
+    shiftPhoto(clone, photo_index - 1);
+}
 
-document.addEventListener('scroll', () => {
-    const scrolledTo = window.scrollY + window.innerHeight;
-    const isReachBottom = document.body.scrollHeight === scrolledTo;
-    if (isReachBottom) { 
-        handleLoading();
-    }
-});
+function nextPhoto(clone) {
+    let photo_index = parseInt(clone.getAttribute('index'));
+    let photo_max = parseInt(clone.getAttribute('max')) - 1;
+    if (photo_index >= photo_max) { return false };
+    shiftPhoto(clone, photo_index + 1);
+}
+
+function shiftPhoto(clone, index) {
+    let photo_date = clone.getAttribute('date');
+    let photo_data = image_data[photo_date];
+    let index_id = photo_data[index];
+
+    let entry_media = clone.querySelector('.entry_media');
+    let photo_select = clone.querySelector('.photo_select');
+    let active_select = photo_select.querySelector('.active');
+    let new_select = photo_select.querySelectorAll('div')[index];
+    active_select.classList.remove('active');
+    new_select.classList.add('active');
+    
+    let preview = `url(media/preview/IMG_${index_id}.jpg)`;
+    let full = `url(media/ful/IMG_${index_id}.jpg)`;
+
+    clone.setAttribute('index', index);
+    entry_media.style.setProperty('--preview_url', preview);
+}
+
+makeAlbum('06/09/24');
+makeAlbum('08/16/22');
+makeAlbum('08/06/22');
+makeAlbum('07/21/22');
+makeAlbum('11/28/21');

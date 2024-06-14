@@ -68,7 +68,7 @@ function makeAlbum(date) {
     content_holder.appendChild(clone);
     clone_photo_select.onclick = photoSelect;
     
-    (function(clone, clone_back, clone_next) {
+    (function(clone, clone_back, clone_next, clone_photo_select) {
         clone_back.onclick = function() {
             backPhoto(clone);
         }
@@ -76,7 +76,36 @@ function makeAlbum(date) {
         clone_next.onclick = function() {
             nextPhoto(clone);
         }
-    })(clone, clone_back, clone_next);
+
+        let start_x;
+        function handleTouchMove(event) {
+            let circle_count = clone_photo_select.querySelectorAll('div').length - 1;
+            let photo_select_rect = clone_photo_select.getBoundingClientRect();
+            let photo_select_left = photo_select_rect.left;
+            let photo_select_right = photo_select_rect.right;
+            let photo_select_width = photo_select_rect.width;
+            let adjusted_x = event.x;
+
+            if (event.x < photo_select_left) {
+                adjusted_x = photo_select_left;
+            } else if (event.x > photo_select_right) {
+                adjusted_x = photo_select_right;
+            }
+
+            let new_x = adjusted_x - photo_select_left;
+            let offset = new_x / photo_select_width;
+            let found_index = Math.round(circle_count * offset);
+            shiftPhoto(clone, found_index);
+        }
+
+        clone_photo_select.addEventListener('touchstart', function(event) {
+            document.addEventListener('touchmove', handleTouchMove);
+        });
+
+        clone_photo_select.addEventListener('touchend', function(event) {
+            document.removeEventListener('touchmove', handleTouchMove);
+        });
+    })(clone, clone_back, clone_next, clone_photo_select, clone_photo_select);
 }
 
 function photoSelect(event) {

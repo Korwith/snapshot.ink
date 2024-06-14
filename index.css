@@ -272,4 +272,14 @@ header {
     .entry_header {
         height: 50px;
     }
+
+    div.shift_left, div.shift_right {
+        width: 50%;
+        background-image: unset;
+        cursor: default;
+    }
+
+    div.shift_left:hover, div.shift_right:hover {
+        background-color: rgba(0, 0, 0, 0);
+    }
 }

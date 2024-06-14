@@ -223,6 +223,9 @@ header {
 @media screen and (max-width: 767px) {
     .content_holder {
         width: 100vw;
+        height: calc(100dvh - 55px);
+        position: fixed;
+        bottom: 0;
     }
 
     .content_frame {

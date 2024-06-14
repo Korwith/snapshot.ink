@@ -1,5 +1,7 @@
 const image_data = {
     '06/09/24': [1175, 1186, 1188, 1193, 1198, 1199, 1203, 1209],
+    '12/04/22': [4277, 4322, 4330, 4331, 4348],
+    '09/18/22': [1818, 1839, 1842, 1866, 1899, 1905, 1907],
     '08/23/22': ['0680', '0701', '0706', '0726', '0748'],
     '08/16/22': ['0494', '0501', '0506', '0509', '0522', '0526', '0534', '0539'],
     '08/06/22': [8610, 8613, 8614, 8632, 8661, 8673],
@@ -7,15 +9,18 @@ const image_data = {
     '11/28/21': [1043, 1074, 1213, 1307, 1311, 1314],
 }
 const date_title = {
-    '11/28/21': 'Downtown Frederick',
-    '07/21/22': 'Hershey Park',
-    '08/23/22': 'Downtown Frederick',
-    '08/06/22': 'Downtown Frederick',
-    '08/16/22': 'Downtown Frederick',
     '06/09/24': 'Railroad Tracks & Monocacy River',
+    '12/04/22': 'Downtown Frederick',
+    '09/18/22': 'Frederick Fair',
+    '08/23/22': 'Downtown Frederick',
+    '08/16/22': 'Downtown Frederick',
+    '08/06/22': 'Downtown Frederick',
+    '07/21/22': 'Hershey Park',
+    '11/28/21': 'Downtown Frederick',
 }
 const included_people = {
     '11/28/21': 'Paris',
+    '09/18/22': 'Edin, Max, Riley',
     '08/23/22': 'Evan & Riley',
     '07/21/22': 'Riley',
     '08/06/22': 'Riley',
@@ -156,9 +161,6 @@ function shiftPhoto(clone, index) {
     entry_media.style.setProperty('--preview_url', preview);
 }
 
-makeAlbum('06/09/24');
-makeAlbum('08/23/22')
-makeAlbum('08/16/22');
-makeAlbum('08/06/22');
-makeAlbum('07/21/22');
-makeAlbum('11/28/21');
+for (var i in image_data) {
+    makeAlbum(i);
+}

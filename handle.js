@@ -1,5 +1,6 @@
 const image_data = {
     '06/09/24': [1175, 1186, 1188, 1193, 1198, 1199, 1203, 1209],
+    '06/02/23': [3690, 3678, 3675],
     '04/09/23': ['0410', '0415', '0591', '0595', '0602'],
     '04/08/23': ['0323', '0353', '0389', '0539', '0378'],
     '04/02/23': ['0022', '0034', '0068', '0071'],
@@ -18,6 +19,7 @@ const image_data = {
 }
 const date_title = {
     '06/09/24': 'Railroad Tracks & Monocacy River',
+    '06/02/23': 'North Crossing "Suge" Island',
     '04/09/24': 'Amber Meadows & Downtown',
     '04/08/23': 'Amber Meadows & Downtown',
     '04/02/23': 'North Crossing "Suge" Island',
@@ -45,6 +47,7 @@ const included_people = {
     '02/03/23': 'Riley',
     '03/25/23': 'Riley & Liam',
     '04/02/23': 'Riley & Edin',
+    '06/02/23': 'Riley, Liam, Paris',
     '06/09/24': 'Paris',
 }
 

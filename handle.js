@@ -95,10 +95,11 @@ function makeAlbum(date) {
             let offset = new_x / photo_select_width;
             let found_index = Math.round(circle_count * offset);
             shiftPhoto(clone, found_index);
+            event.preventDefault();
         }
 
         clone_photo_select.addEventListener('touchstart', function(event) {
-            document.addEventListener('touchmove', handleTouchMove);
+            document.addEventListener('touchmove', handleTouchMove, {passive: false});
         });
 
         clone_photo_select.addEventListener('touchend', function(event) {
@@ -136,6 +137,7 @@ function shiftPhoto(clone, index) {
     let photo_date = clone.getAttribute('date');
     let photo_data = image_data[photo_date];
     let index_id = photo_data[index];
+    if (!index_id) { return false };
 
     let entry_media = clone.querySelector('.entry_media');
     let photo_select = clone.querySelector('.photo_select');

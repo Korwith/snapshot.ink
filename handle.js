@@ -10,7 +10,7 @@ const image_data = {
 const date_title = {
     '11/28/21': 'Downtown Frederick w/ Paris',
     '07/21/22': 'Hershey Park w/ Riley',
-    '08/06/22': 'Down Frederick w/ Riley',
+    '08/06/22': 'Downtown Frederick w/ Riley',
     '06/09/24': 'Railroad Tracks & Monocacy River',
 }
 

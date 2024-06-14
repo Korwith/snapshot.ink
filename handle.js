@@ -83,7 +83,7 @@ function makeAlbum(date) {
             let photo_select_left = photo_select_rect.left;
             let photo_select_right = photo_select_rect.right;
             let photo_select_width = photo_select_rect.width;
-            let adjusted_x = event.x;
+            let adjusted_x = event.clientX;
 
             if (event.x < photo_select_left) {
                 adjusted_x = photo_select_left;
@@ -94,11 +94,7 @@ function makeAlbum(date) {
             let new_x = adjusted_x - photo_select_left;
             let offset = new_x / photo_select_width;
             let found_index = Math.round(circle_count * offset);
-            alert(adjusted_x);
-            alert(new_x);
-            alert(offset);
-            alert(found_index);
-            //shiftPhoto(clone, found_index);
+            shiftPhoto(clone, found_index);
         }
 
         clone_photo_select.addEventListener('touchstart', function(event) {

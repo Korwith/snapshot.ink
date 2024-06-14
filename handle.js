@@ -94,16 +94,19 @@ function makeAlbum(date) {
             let new_x = adjusted_x - photo_select_left;
             let offset = new_x / photo_select_width;
             let found_index = Math.round(circle_count * offset);
+            alert(adjusted_x);
+            alert(new_x);
+            alert(offset);
             alert(found_index);
             //shiftPhoto(clone, found_index);
         }
 
         clone_photo_select.addEventListener('touchstart', function(event) {
-            document.addEventListener('mousemove', handleTouchMove);
+            document.addEventListener('touchmove', handleTouchMove);
         });
 
         clone_photo_select.addEventListener('touchend', function(event) {
-            document.removeEventListener('mousemove', handleTouchMove);
+            document.removeEventListener('touchmove', handleTouchMove);
         });
     })(clone, clone_back, clone_next, clone_photo_select, clone_photo_select);
 }

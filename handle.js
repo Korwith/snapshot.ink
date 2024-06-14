@@ -77,7 +77,6 @@ function makeAlbum(date) {
             nextPhoto(clone);
         }
 
-        let start_x;
         function handleTouchMove(event) {
             let circle_count = clone_photo_select.querySelectorAll('div').length - 1;
             let photo_select_rect = clone_photo_select.getBoundingClientRect();
@@ -96,6 +95,7 @@ function makeAlbum(date) {
             let offset = new_x / photo_select_width;
             let found_index = Math.round(circle_count * offset);
             shiftPhoto(clone, found_index);
+            alert(found_index);
         }
 
         clone_photo_select.addEventListener('touchstart', function(event) {

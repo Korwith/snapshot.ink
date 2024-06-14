@@ -51,6 +51,7 @@ function makeAlbum(date) {
     if (this_data.length > 1) {
         for (var i = 0; i < this_data.length; i++) {
             let dot_div = document.createElement('div');
+            dot_div.setAttribute('button_index', i);
             clone_photo_select.appendChild(dot_div);
             if (i >= 1) { continue };
             dot_div.classList.add('active');
@@ -62,8 +63,10 @@ function makeAlbum(date) {
     clone.setAttribute('index', 0);
     clone.setAttribute('max', this_data.length);
     clone.setAttribute('date', date);
+    clone_photo_select.setAttribute('date', date);
     clone_media.style.setProperty('--preview_url', preview);
     content_holder.appendChild(clone);
+    clone_photo_select.onclick = photoSelect;
     
     (function(clone, clone_back, clone_next) {
         clone_back.onclick = function() {
@@ -74,6 +77,18 @@ function makeAlbum(date) {
             nextPhoto(clone);
         }
     })(clone, clone_back, clone_next);
+}
+
+function photoSelect(event) {
+    let selected_dot = event.target;
+    let selected_index = parseInt(selected_dot.getAttribute('button_index'));    
+    if (!(selected_index > -1)) { return false };
+
+    let selected_frame = event.target.parentElement;
+    let selected_date = selected_frame.getAttribute('date');
+    let selected_album = document.querySelector(`.entry[date="${selected_date}"]`)
+
+    shiftPhoto(selected_album, selected_index);
 }
 
 function backPhoto(clone) {

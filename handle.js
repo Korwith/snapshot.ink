@@ -1,5 +1,6 @@
 const image_data = {
     '06/09/24': [1175, 1186, 1188, 1193, 1198, 1199, 1203, 1209],
+    '01/24/23': [6647, 6642, 6625, 6623, 6599],
     '01/06/23': [5425, 5426, 5439, 5462, 5465, 5515],
     '12/12/22': [4498, 4514, 4519, 4535, 4536, 4540],
     '12/04/22': [4277, 4322, 4330, 4331, 4348],
@@ -12,6 +13,7 @@ const image_data = {
 }
 const date_title = {
     '06/09/24': 'Railroad Tracks & Monocacy River',
+    '01/24/23': 'Amber Meadows',
     '01/06/23': 'North Crossing',
     '12/12/22': 'Downtown Frederick',
     '12/04/22': 'Downtown Frederick',
@@ -24,11 +26,12 @@ const date_title = {
 }
 const included_people = {
     '11/28/21': 'Paris',
-    '12/12/22': 'Riley',
     '09/18/22': 'Edin, Max, Riley',
     '08/23/22': 'Evan & Riley',
     '07/21/22': 'Riley',
     '08/06/22': 'Riley',
+    '12/12/22': 'Riley',
+    '01/24/23': 'Riley',
     '06/09/24': 'Paris'
 }
 

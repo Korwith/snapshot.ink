@@ -42,7 +42,7 @@ header {
 .site_name .title {
     display: flex;
     align-items: center;
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     font-weight: 900;
     margin-left: 5px;
     margin-right: 5px;
@@ -77,11 +77,11 @@ header {
     flex-direction: column;
 }
 
-.entry:hover .entry_header {
+.entry:hover .entry_header, .entry:focus .entry_header {
     background-color: #111111;
 }
 
-.entry:hover .entry_media nav {
+.entry:hover .entry_media nav, .entry:focus .entry_media nav {
     opacity: 1;
 }
 
@@ -195,7 +195,7 @@ header {
     transition: background-color 0.2s;
 }
 
-.button_overlay div:hover {
+.button_overlay div:hover, .button_overlay div:focus {
     background-color: rgba(0, 0, 0, 0.3);
 }
 

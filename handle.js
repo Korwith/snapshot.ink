@@ -3,14 +3,16 @@ const placeholder_seperator = document.querySelector('#placeholder');
 const header_button = document.querySelectorAll('header .button_select');
 const image_data = {
     '06/09/24': [1175, 1186, 1188, 1193, 1198, 1199, 1203, 1209],
-    '07/21/22': [8086, 8090, 8093, 8120, 8153],
+    '08/16/22': ['0494', '0501', '0506', '0509', '0522', '0526', '0534', '0539'],
     '08/06/22': [8610, 8613, 8614, 8632, 8661, 8673],
+    '07/21/22': [8086, 8090, 8093, 8120, 8153],
     '11/28/21': [1043, 1074, 1213, 1307, 1311, 1314],
 }
 const date_title = {
     '11/28/21': 'Downtown Frederick w/ Paris',
     '07/21/22': 'Hershey Park w/ Riley',
     '08/06/22': 'Downtown Frederick w/ Riley',
+    '08/16/22': 'Downtown Frederick Walk',
     '06/09/24': 'Railroad Tracks & Monocacy River',
 }
 

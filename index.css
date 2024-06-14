@@ -54,9 +54,10 @@ header {
     aspect-ratio: 1/1;
     height: calc(100% - 10px);
     margin: 5px;
-    background-size: cover;
-    background-image: url(icon/folder.svg);
-    filter: brightness(0) invert(1);
+    background-size: 90%;
+    background-image: url(icon/camera.png);
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .title_holder .title {

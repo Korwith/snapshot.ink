@@ -20,7 +20,7 @@ const image_data = {
 const date_title = {
     '06/09/24': 'Railroad Tracks & Monocacy River',
     '06/02/23': 'North Crossing "Suge" Island',
-    '04/09/24': 'Amber Meadows & Downtown',
+    '04/09/23': 'Amber Meadows & Downtown',
     '04/08/23': 'Amber Meadows & Downtown',
     '04/02/23': 'North Crossing "Suge" Island',
     '03/25/23': 'Downtown Frederick',

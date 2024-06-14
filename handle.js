@@ -99,11 +99,11 @@ function makeAlbum(date) {
         }
 
         clone_photo_select.addEventListener('touchstart', function(event) {
-            document.addEventListener('touchmove', handleTouchMove);
+            document.addEventListener('mousemove', handleTouchMove);
         });
 
         clone_photo_select.addEventListener('touchend', function(event) {
-            document.removeEventListener('touchmove', handleTouchMove);
+            document.removeEventListener('mousemove', handleTouchMove);
         });
     })(clone, clone_back, clone_next, clone_photo_select, clone_photo_select);
 }

@@ -1,7 +1,10 @@
 body {
-    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    padding-top: 55px;
     background-color: black;
     overflow-x: hidden;
+    margin: 0;
 }
 
 #placeholder {
@@ -15,11 +18,12 @@ body {
 header {
     height: 55px;
     width: 100vw;
-    background-color: #101010;
+    background: linear-gradient(to bottom left, #101010, #202020);
     box-shadow: #101010 0px 2px 4px;
     display: flex;
     position: fixed;
     top: 0;
+    left: 0;
     z-index: 999;
 }
 
@@ -50,10 +54,70 @@ header {
     font-family: Arial;
 }
 
-.content_holder {
-    padding-top: 10px;
+.site_link {
+    width: fit-content;
+    min-width: 300px;
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: 60px;
+    display: flex;
+    background: linear-gradient(to bottom right, #0067CD, #007600);
+    border-radius: 12px;
+    position: relative;
+    cursor: pointer;
+}
+
+.site_link::after {
+    content: '';
     position: absolute;
-    top: 55px;
+    left: 0;
+    top: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    border: 3px solid rgba(0, 0, 0, 0.5);
+    box-sizing: border-box;
+    transition: border 0.2s;
+}
+
+.site_link:hover::after {
+    border: 3px solid white;
+}
+
+.site_link .icon {
+    aspect-ratio: 1/1;
+    flex: 0 0 auto;
+    height: calc(100% - 10px);
+    margin: 5px;
+    background-size: cover;
+    background-image: url(https://www.google.com/s2/favicons?domain=https://www.kircic.org&sz=128);
+}
+
+.site_info {
+    flex: 1;
+    display: flex;
+    margin-left: 10px;
+    flex-direction: column;
+}
+
+.site_name {
+    font-weight: 900;
+    font-size: 1.2rem;
+}
+
+.site_info span {
+    display: flex;
+    align-items: center;
+    height: 50%;
+    width: 100%;
+}
+
+.content_holder {
+    position: absolute;
     min-height: calc(100vh - 55px);
     height: fit-content;
     width: 60vw;
@@ -77,11 +141,13 @@ header {
     flex-direction: column;
 }
 
-.entry:hover .entry_header, .entry:focus .entry_header {
-    background-color: #111111;
+.entry:hover .entry_header,
+.entry:focus .entry_header {
+    background: linear-gradient(to bottom right, #181818, #252525);
 }
 
-.entry:hover .entry_media nav, .entry:focus .entry_media nav {
+.entry:hover .entry_media nav,
+.entry:focus .entry_media nav {
     opacity: 1;
 }
 
@@ -89,7 +155,7 @@ header {
     flex: 0 0 auto;
     width: 100%;
     height: 4vw;
-    background-color: #0A0A0A;
+    background: linear-gradient(to bottom right, #101010, #181818);
     border-top-right-radius: 8px;
     border-top-left-radius: 8px;
     display: flex;
@@ -195,7 +261,8 @@ header {
     transition: background-color 0.2s;
 }
 
-.button_overlay div:hover, .button_overlay div:focus {
+.button_overlay div:hover,
+.button_overlay div:focus {
     background-color: rgba(0, 0, 0, 0.3);
 }
 
@@ -252,12 +319,16 @@ header {
 }
 
 * {
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color: white;
     text-shadow: 2px 2px 4px black;
 }
 
 @media screen and (max-width: 767px) {
+    .site_link {
+        width: 80vw;
+    }
+
     .content_holder {
         width: 100vw;
         justify-content: unset;
@@ -273,13 +344,15 @@ header {
         height: 50px;
     }
 
-    div.shift_left, div.shift_right {
+    div.shift_left,
+    div.shift_right {
         width: 50%;
         background-image: unset;
         cursor: default;
     }
 
-    div.shift_left:hover, div.shift_right:hover {
+    div.shift_left:hover,
+    div.shift_right:hover {
         background-color: rgba(0, 0, 0, 0);
     }
 }

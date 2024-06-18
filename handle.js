@@ -135,6 +135,7 @@ function makeAlbum(date) {
 
         clone_photo_select.addEventListener('touchstart', function(event) {
             document.addEventListener('touchmove', handleTouchMove, {passive: false});
+            handleTouchMove(event);
         });
 
         clone_photo_select.addEventListener('touchend', function(event) {

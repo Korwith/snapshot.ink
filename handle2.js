@@ -1,0 +1,251 @@
+const data = {
+    'Thaddeus': {
+        card: {
+            bio: 'Web Developer',
+            icon: 'icon/kircic.png',
+        },
+
+        social: {
+            'cashapp': 'https://cash.app/$thadreal',
+            'discord': 'https://discord.com/invite/p8ZZXZqnag',
+            'github': 'https://github.com/Korwith',
+            'instagram': 'https://www.instagram.com/thadcoolfr/',
+            'youtube': 'https://www.youtube.com/channel/UCLcCNfyLG_jQev4MdkHtCZw',
+        },
+
+        images: {
+            '06/09/24': {
+                name: 'Railroad Tracks & Monocacy River',
+                people: 'Paris',
+                id: [1175, 1186, 1188, 1193, 1198, 1199, 1203, 1209],
+            },
+            '06/05/23': {
+                name: 'Downtown Frederick',
+                people: 'Paris',
+                id: [3895, 3900, 3902, 3906, 3913, 3915, 3950],
+            },
+            '06/02/23': {
+                name: 'North Crossing "Suge" Island',
+                people: 'Riley, Liam, Paris',
+                id: [3690, 3678, 3675]
+            },
+            '04/09/23': {
+                name: 'Amber Meadows & Downtown',
+                id: ['0410', '0415', '0591', '0595', '0602']
+            },
+            '04/08/23': {
+                name: 'Amber Meadows & Downtown',
+                id: ['0323', '0353', '0389', '0539', '0378']
+            },
+            '04/02/23': {
+                name: 'North Crossing "Suge" Island',
+                people: 'Riley & Edin',
+                id: ['0022', '0034', '0068', '0071']
+            },
+            '03/25/23': {
+                name: 'Downtown Frederick',
+                people: 'Riley & Liam',
+                id: [9485, 9540, 9626, 9629]
+            },
+            '02/03/23': {
+                name: 'Downtown Frederick',
+                people: 'Riley',
+                id: [6991, 7031, 7034, 7143, 7138, 7131, 7078, 7052, 7049]
+            },
+            '01/24/23': {
+                name: 'Amber Meadows',
+                people: 'Riley',
+                id: [6647, 6642, 6625, 6623, 6599],
+            },
+            '01/06/23': {
+                name: 'North Crossing',
+                id: [5425, 5426, 5439, 5462, 5465, 5515],
+            },
+            '12/12/22': {
+                name: 'Downtown Frederick',
+                people: 'Riley',
+                id: [4498, 4514, 4519, 4535, 4536, 4540],
+            },
+            '12/04/22': {
+                name: 'Downtown Frederick',
+                id: [4277, 4322, 4330, 4331, 4348]
+            },
+            '09/18/22': {
+                name: 'Frederick Fair',
+                people: 'Edin, Max, Riley',
+                id: [1818, 1839, 1842, 1866, 1899, 1905, 1907]
+            },
+            '08/23/22': {
+                name: 'Downtown Frederick',
+                people: 'Evan & Riley',
+                id: ['0680', '0701', '0706', '0726', '0748'],
+            },
+            '08/16/22': {
+                name: 'Downtown Frederick',
+                id: ['0494', '0501', '0506', '0509', '0522', '0526', '0534', '0539']
+            },
+            '08/06/22': {
+                name: 'Downtown Frederick',
+                people: 'Riley',
+                id: [8610, 8613, 8614, 8632, 8661, 8673]
+            },
+            '07/21/22': {
+                name: 'Hershey Park',
+                people: 'Riley',
+                id: [8086, 8090, 8093, 8120, 8153]
+            },
+            '11/28/21': {
+                name: 'Downtown Frederick',
+                people: 'Paris',
+                id: [1043, 1074, 1213, 1307, 1311, 1314]
+            },        
+        }
+    }
+}
+
+const n_to_month = {
+    '01': 'January',
+    '02': 'February',
+    '03': 'March',
+    '04': 'April',
+    '05': 'May',
+    '06': 'June',
+    '07': 'July',
+    '08': 'August',
+    '09': 'September',
+    '10': 'October',
+    '11': 'November',
+    '12': 'December'
+};
+
+const user_select = document.querySelector('.user_select');
+const user_select_icon = user_select.querySelector('.icon');
+const user_select_name = user_select.querySelector('.username');
+const card = document.querySelector('.card');
+const profile = card.querySelector('.profile');
+const profile_icon = profile.querySelector('.icon');
+const profile_about = profile.querySelector('.about');
+const profile_username = profile_about.querySelector('.username');
+const profile_bio = profile_about.querySelector('.bio');
+const social_holder = document.querySelector('.social');
+
+const content = document.querySelector('.content');
+const sidebar = document.querySelector('nav.sidebar');
+const sidebar_button = document.querySelector('.sidebar_icon');
+const nav_select = sidebar.querySelector('.nav_select');
+const entry_placeholder = document.querySelector('#placeholder.entry');
+const nav_placeholder = document.querySelector('#placeholder.nav_button');
+const entry_grid = document.querySelector('.grid_holder');
+
+function handleSidebar() {
+    let hidden = sidebar.classList.contains('hide');
+
+    if (!hidden) {
+        sidebar.classList.add('hide');
+        content.classList.add('expand');
+    } else {
+        sidebar.classList.remove('hide');
+        content.classList.remove('expand');
+    }
+}
+sidebar_button.addEventListener('mouseup', handleSidebar);
+
+function handleResize() {
+    if (window.innerWidth < 767) {
+        sidebar.classList.add('hide');
+        content.classList.add('expand');
+    }
+}
+window.onresize = handleResize;
+handleResize();
+
+function timeSelect(event) {
+    let month = event.target.getAttribute('month');
+    let year = event.target.getAttribute('year');
+    let first_entry = entry_grid.querySelector(`.entry[month="${month}"][year="${year}"]`);
+    if (!first_entry) { return false };
+    first_entry.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    first_entry.classList.add('highlight');
+    setTimeout(function() {
+        first_entry.classList.remove('highlight');
+    }, 250)
+
+    if (window.innerWidth < 767) {
+        sidebar.classList.add('hide');
+        content.classList.add('expand');
+    }
+}
+
+function profileTop() {
+    card.scrollIntoView({behavior: 'smooth', block: 'start'});
+}
+
+function makeAlbum(name, date) {
+    let this_data = data[name].images[date];
+    let first_preview = this_data.id[0];
+    let clone = entry_placeholder.cloneNode(true);
+    let clone_date = clone.querySelector('.text.date');
+    let clone_title = clone.querySelector('.text.title');
+
+    clone.style.backgroundImage = `url(media/preview/IMG_${first_preview}.jpg)`;
+    clone_date.innerHTML = date;
+    clone_title.innerHTML = this_data.name;
+    clone.setAttribute('date', date);
+    clone.removeAttribute('id');
+    entry_grid.appendChild(clone);
+
+    let date_split = date.split('/');
+    let month = n_to_month[date_split[0]];
+    let year = date_split[2];
+    let month_select = nav_select.querySelector(`.nav_button[month="${month}"][year="${year}"]`);
+    let year_seperator = nav_select.querySelector(`hr[year="${'20' + year}"]`);
+    clone.setAttribute('month', month);
+    clone.setAttribute('year', year);
+
+    if (!year_seperator) {
+        let hr = document.createElement('hr');
+        hr.setAttribute('year', '20' + year);
+        nav_select.appendChild(hr);
+    }
+
+    if (month_select) { return false };
+    let button_clone = nav_placeholder.cloneNode(true);
+    let button_text = button_clone.querySelector('.section');
+    button_text.innerHTML = month;
+    button_clone.setAttribute('month', month);
+    button_clone.setAttribute('year', year);
+    button_clone.removeAttribute('id');
+    nav_select.appendChild(button_clone);
+    button_clone.onclick = timeSelect;
+}
+
+function loadCard(name) {
+    let this_data = data[name];
+    user_select_icon.style.backgroundImage = `url(${this_data.card.icon})`;
+    user_select_name.innerHTML = name;
+    profile_username.innerHTML = name;
+    profile_bio.innerHTML = this_data.card.bio;
+    profile_icon.style.backgroundImage = `url(${this_data.card.icon})`;
+
+    for (var i in this_data.social) {
+        let link = document.createElement('a');
+        let button = document.createElement('div');
+        button.classList.add(i);
+        link.setAttribute('target', '_blank');
+        link.setAttribute('href', this_data.social[i]);
+        link.appendChild(button);
+        social_holder.appendChild(link);
+    }
+}
+
+function loadPerson(name) {
+    let this_data = data[name];
+    let images = this_data.images;
+    
+    loadCard(name);
+    for (var i in images) {
+        makeAlbum(name, i);
+    }
+}
+
+loadPerson('Thaddeus');

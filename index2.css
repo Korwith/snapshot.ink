@@ -276,9 +276,9 @@ nav.sidebar.hide {
 .content {
     position: fixed;
     right: 0;
-    bottom: 0;
+    top: 50px;
     width: calc(100vw - 300px);
-    height: calc(100vh - 50px);
+    height: calc(100dvh - 50px);
     overflow-y: auto;
     transition: width 0.2s, transform 0.2s;
 }

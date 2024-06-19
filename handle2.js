@@ -174,10 +174,18 @@ function timeSelect(event) {
         sidebar.classList.add('hide');
         content.classList.add('expand');
     }
+
+    document.activeElement = content;
 }
 
 function profileTop() {
     card.scrollIntoView({behavior: 'smooth', block: 'start'});
+    if (window.innerWidth < 767) {
+        sidebar.classList.add('hide');
+        content.classList.add('expand');
+    }
+    
+    document.activeElement = content;
 }
 
 function makeAlbum(name, date) {

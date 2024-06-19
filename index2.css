@@ -96,9 +96,9 @@ header {
 nav.sidebar {
     position: fixed;
     left: 0;
-    bottom: 0;
+    top: 50px;
     width: calc(300px);
-    height: calc(100vh - 50px);
+    height: calc(100dvh - 50px);
     display: flex;
     flex-direction: column;
     z-index: 10;

@@ -155,6 +155,7 @@ function handleResize() {
         sidebar.classList.add('hide');
         content.classList.add('expand');
     }
+    content.focus();
 }
 window.onresize = handleResize;
 handleResize();
@@ -175,7 +176,7 @@ function timeSelect(event) {
         content.classList.add('expand');
     }
 
-    document.activeElement = content;
+    content.focus();
 }
 
 function profileTop() {
@@ -184,8 +185,8 @@ function profileTop() {
         sidebar.classList.add('hide');
         content.classList.add('expand');
     }
-    
-    document.activeElement = content;
+
+    content.focus();
 }
 
 function makeAlbum(name, date) {

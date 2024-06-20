@@ -309,7 +309,7 @@ function photoSelect(event) {
         photo_holder_caption.parentElement.classList.add('hide');
     }
 
-    if (selected_location != this_data.name) {
+    if (!event.target.parentElement.classList.contains('related_flex')) {
         let previous_related = bottom_info.querySelectorAll('.related_holder');
         for (var i = 0; i < previous_related.length; i++) {
             previous_related[i].remove();

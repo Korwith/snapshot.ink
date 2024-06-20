@@ -149,6 +149,8 @@ const exit = photo_holder.querySelector('.main.exit');
 const mobile_exit = photo_holder.querySelector('.mobile.exit');
 const related_placeholder = document.querySelector('#placeholder.related_holder');
 const bottom_info = document.querySelector('.photo_side .bottom_info');
+const back_photo = photo_holder.querySelector('.photo_back');
+const next_photo = photo_holder.querySelector('.photo_next');
 
 let selected_user;
 let selected_location;
@@ -226,6 +228,7 @@ function findSameLocation(this_location, date) {
 
 
 function findSamePeople(people_list, date) {
+    if (!people_list) { return {} };
     let this_data = data[selected_user].images;
     let matching = {};
 
@@ -285,6 +288,28 @@ function generateRelatedAlbums(date) {
     }
 }
 
+function photoNext() {
+    let photo_date = photo.getAttribute('date');
+    let photo_index = parseInt(photo.getAttribute('index'));
+    let photo_info = data[selected_user].images[photo_date];
+    if (photo_index + 1 >= photo_info.id.length) { return false };
+    let new_url = `url(media/preview/IMG_${photo_info.id[photo_index + 1]}.jpg)`;
+    photo.setAttribute('index', photo_index + 1);
+    photo.style.backgroundImage = new_url;
+}
+next_photo.addEventListener('mouseup', photoNext);
+
+function photoBack() {
+    let photo_date = photo.getAttribute('date');
+    let photo_index = parseInt(photo.getAttribute('index'));
+    let photo_info = data[selected_user].images[photo_date];
+    if (photo_index - 1 <= -1) { return false };
+    let new_url = `url(media/preview/IMG_${photo_info.id[photo_index - 1]}.jpg)`;
+    photo.setAttribute('index', photo_index - 1);
+    photo.style.backgroundImage = new_url;
+}
+back_photo.addEventListener('mouseup', photoBack);
+
 function photoSelect(event) {
     if (!event.target.classList.contains('entry')) { return false };
     let this_date = event.target.getAttribute('date');
@@ -293,6 +318,8 @@ function photoSelect(event) {
     let first_id = photo_id[0];
 
     photo.style.backgroundImage = `url(media/preview/IMG_${first_id}.jpg)`;
+    photo.setAttribute('date', this_date);
+    photo.setAttribute('index', 0);
     photo_holder_link.setAttribute('href', `media/full/IMG_${first_id}.jpg`);
     photo_holder_date.innerHTML = this_date;
     photo_holder_location.innerHTML = this_data.name;

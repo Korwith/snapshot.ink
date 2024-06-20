@@ -631,6 +631,7 @@ nav.sidebar.hide {
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 999;
+    overflow: hidden;
     transition: opacity 0.2s;
 }
 
@@ -660,6 +661,7 @@ nav.sidebar.hide {
     background-color: white;
     position: relative;
     background-size: cover;
+    transition: background-position-x 0.3s;
 }
 
 .photo::after {
@@ -673,6 +675,60 @@ nav.sidebar.hide {
     border: 4px solid rgba(0, 0, 0, 0.5);
     border-top-left-radius: 8px;
     border-bottom-left-radius: 8px;
+}
+
+.photo_control_holder {
+    width: calc(100% - 30px);
+    height: 55px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+}
+
+.photo_control_holder div {
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.5);
+    box-sizing: border-box;
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    height: 100%;
+    cursor: pointer;
+    background-size: cover;
+    position: relative;
+    transition: background-color 0.2s;
+}
+
+.photo_control_holder div::after {
+    content: '';
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    position: absolute;
+    filter: invert(1);
+}
+
+.photo_control_holder div:hover {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.photo_back {
+    float: left;
+}
+
+.photo_back::after {
+    background-image: url(icon/left.svg);
+}
+
+.photo_next {
+    float: right;
+}
+
+.photo_next::after {
+    background-image: url(icon/right.svg);
 }
 
 .photo_text_holder {

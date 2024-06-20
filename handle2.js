@@ -145,6 +145,8 @@ const photo_holder_people = photo_holder.querySelector('span.people');
 const photo_holder_location = photo_holder.querySelector('span.location');
 const photo_holder_caption = photo_holder.querySelector('span.caption');
 const photo_holder_link = photo_holder.querySelector('a.link');
+const exit = photo_holder.querySelector('.main.exit');
+const mobile_exit = photo_holder.querySelector('.mobile.exit');
 
 let selected_user;
 
@@ -226,6 +228,12 @@ function photoSelect(event) {
 
     photo_holder.classList.remove('hide');
 }
+
+function hidePhotoSelect() {
+    photo_holder.classList.add('hide');
+}
+exit.addEventListener('mouseup', hidePhotoSelect);
+mobile_exit.addEventListener('mouseup', hidePhotoSelect);
 
 function makeAlbum(name, date) {
     let this_data = data[name].images[date];

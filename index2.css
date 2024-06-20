@@ -841,6 +841,12 @@ nav.sidebar.hide {
         height: 100%;
         flex-direction: column;
         overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    .photo {
+        width: 100vw;
+        height: 100vw;
     }
 
     .photo::after, .photo {
@@ -850,5 +856,9 @@ nav.sidebar.hide {
 
     .photo_text_holder {
         border-top-left-radius: 0;
+    }
+
+    .location_holder {
+        height: 45px;
     }
 }

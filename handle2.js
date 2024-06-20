@@ -138,7 +138,6 @@ const entry_placeholder = document.querySelector('#placeholder.entry');
 const nav_placeholder = document.querySelector('#placeholder.nav_button');
 const entry_grid = document.querySelector('.grid_holder');
 
-
 const photo_holder = document.querySelector('.photo_holder');
 const photo = photo_holder.querySelector('.photo');
 const photo_holder_date = photo_holder.querySelector('span.date');

@@ -16,21 +16,22 @@ const data = {
         images: {
             '06/09/24': {
                 name: 'Railroad Tracks & Monocacy River',
-                people: 'Paris',
+                people: ['Paris'],
                 id: [1175, 1186, 1188, 1193, 1198, 1199, 1203, 1209],
             },
             '06/05/23': {
                 name: 'Downtown Frederick',
-                people: 'Paris',
+                people: ['Paris'],
                 id: [3895, 3900, 3902, 3906, 3913, 3915, 3950],
             },
             '06/02/23': {
                 name: 'North Crossing "Suge" Island',
-                people: 'Riley, Liam, Paris',
+                people: ['Riley', 'Liam', 'Paris'],
                 id: [3690, 3678, 3675]
             },
             '04/09/23': {
                 name: 'Amber Meadows & Downtown',
+                caption: 'Easter 2023, I walked 20 miles on this day.',
                 id: ['0410', '0415', '0591', '0595', '0602']
             },
             '04/08/23': {
@@ -39,22 +40,22 @@ const data = {
             },
             '04/02/23': {
                 name: 'North Crossing "Suge" Island',
-                people: 'Riley & Edin',
+                people: ['Riley', 'Edin'],
                 id: ['0022', '0034', '0068', '0071']
             },
             '03/25/23': {
                 name: 'Downtown Frederick',
-                people: 'Riley & Liam',
+                people: ['Riley', 'Liam'],
                 id: [9485, 9540, 9626, 9629]
             },
             '02/03/23': {
                 name: 'Downtown Frederick',
-                people: 'Riley',
+                people: ['Riley'],
                 id: [6991, 7031, 7034, 7143, 7138, 7131, 7078, 7052, 7049]
             },
             '01/24/23': {
                 name: 'Amber Meadows',
-                people: 'Riley',
+                people: ['Riley'],
                 id: [6647, 6642, 6625, 6623, 6599],
             },
             '01/06/23': {
@@ -63,7 +64,7 @@ const data = {
             },
             '12/12/22': {
                 name: 'Downtown Frederick',
-                people: 'Riley',
+                people: ['Riley'],
                 id: [4498, 4514, 4519, 4535, 4536, 4540],
             },
             '12/04/22': {
@@ -72,12 +73,12 @@ const data = {
             },
             '09/18/22': {
                 name: 'Frederick Fair',
-                people: 'Edin, Max, Riley',
+                people: ['Edin', 'Max', 'Riley'],
                 id: [1818, 1839, 1842, 1866, 1899, 1905, 1907]
             },
             '08/23/22': {
                 name: 'Downtown Frederick',
-                people: 'Evan & Riley',
+                people: ['Evan', 'Riley'],
                 id: ['0680', '0701', '0706', '0726', '0748'],
             },
             '08/16/22': {
@@ -86,17 +87,17 @@ const data = {
             },
             '08/06/22': {
                 name: 'Downtown Frederick',
-                people: 'Riley',
+                people: ['Riley'],
                 id: [8610, 8613, 8614, 8632, 8661, 8673]
             },
             '07/21/22': {
                 name: 'Hershey Park',
-                people: 'Riley',
+                people: ['Riley'],
                 id: [8086, 8090, 8093, 8120, 8153]
             },
             '11/28/21': {
                 name: 'Downtown Frederick',
-                people: 'Paris',
+                people: ['Paris'],
                 id: [1043, 1074, 1213, 1307, 1311, 1314]
             },        
         }
@@ -136,6 +137,16 @@ const nav_select = sidebar.querySelector('.nav_select');
 const entry_placeholder = document.querySelector('#placeholder.entry');
 const nav_placeholder = document.querySelector('#placeholder.nav_button');
 const entry_grid = document.querySelector('.grid_holder');
+
+
+const photo_holder = document.querySelector('.photo_holder');
+const photo = photo_holder.querySelector('.photo');
+const photo_holder_date = photo_holder.querySelector('span.date');
+const photo_holder_people = photo_holder.querySelector('span.people');
+const photo_holder_location = photo_holder.querySelector('span.location');
+const photo_holder_caption = photo_holder.querySelector('span.caption');
+
+let selected_user;
 
 function handleSidebar() {
     let hidden = sidebar.classList.contains('hide');
@@ -189,6 +200,32 @@ function profileTop() {
     content.focus();
 }
 
+function photoSelect(event) {
+    if (!event.target.classList.contains('entry')) { return false };
+    let this_date = event.target.getAttribute('date');
+    let this_data = data[selected_user].images[this_date];
+    let photo_id = this_data.id;
+    let first_id = photo_id[0];
+
+    photo.style.backgroundImage = `url(media/preview/IMG_${first_id}.jpg)`;
+    photo_holder_date.innerHTML = this_date;
+    photo_holder_location.innerHTML = this_data.name;
+
+    if (this_data.people) {
+        photo_holder_people.innerHTML = this_data.people.join(', ');
+    } else {
+        photo_holder_people.parentElement.classList.add('hide');
+    }
+
+    if (this_data.caption) {
+        photo_holder_caption.innerHTML = this_data.caption;
+    } else {
+        photo_holder_caption.parentElement.classList.add('hide');
+    }
+
+    photo_holder.classList.remove('hide');
+}
+
 function makeAlbum(name, date) {
     let this_data = data[name].images[date];
     let first_preview = this_data.id[0];
@@ -201,6 +238,7 @@ function makeAlbum(name, date) {
     clone_title.innerHTML = this_data.name;
     clone.setAttribute('date', date);
     clone.removeAttribute('id');
+    clone.onclick = photoSelect;
     entry_grid.appendChild(clone);
 
     let date_split = date.split('/');
@@ -255,6 +293,8 @@ function loadPerson(name) {
     for (var i in images) {
         makeAlbum(name, i);
     }
+
+    selected_user = name;
 }
 
 loadPerson('Thaddeus');

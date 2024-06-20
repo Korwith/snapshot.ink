@@ -36,7 +36,7 @@ header {
     background-color: #151515;
     display: flex;
     box-shadow: #151515 0 2px 6px;
-    z-index: 999;
+    z-index: 500;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -621,6 +621,168 @@ nav.sidebar.hide {
     font-size: 1rem;
 }
 
+.photo_holder {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    transition: opacity 0.2s;
+}
+
+.photo_holder.hide {
+    pointer-events: none;
+    opacity: 0;
+}
+
+.photo_holder_main {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: calc(100% - 20px);
+    aspect-ratio: 8/5;
+    border-radius: 8px;
+    background: linear-gradient(to bottom, #202020, #0A0A0A);
+    display: flex;
+}
+
+.photo {
+    aspect-ratio: 1/1;
+    height: 100%;
+    flex: 0 0 auto;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    background-color: white;
+    position: relative;
+    background-size: cover;
+}
+
+.photo::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    border: 4px solid rgba(0, 0, 0, 0.5);
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+.photo_text_holder {
+    width: fit-content;
+    height: fit-content;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-top-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    margin: 4px;
+}
+
+.photo_info_holder {
+    padding-left: 5px;
+    padding-right: 5px;
+    width: fit-content;
+    height: 35px;
+    display: flex;
+}
+
+.photo_info_holder.featured.hide {
+    display: none;
+}
+
+.photo_info_holder .icon {
+    flex: 0 0 auto;
+    aspect-ratio: 1/1;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.photo_info_holder .icon.date {
+    background-image: url(icon/day.svg);
+    background-size: 66%;
+}
+
+.photo_info_holder .icon.people {
+    background-image: url(icon/people.svg);
+    background-size: 70%;
+}
+
+.photo_side {
+    flex: 1;
+}
+
+.photo_info_holder span {
+    flex: 1;
+    display: flex;
+    width: fit-content;
+    height: 100%;
+    align-items: center;
+    font-weight: 700;
+    user-select: none;
+}
+
+.location_holder {
+    height: 65px;
+    width: 100%;
+    border-top-right-radius: 8px;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: flex;
+    box-shadow: rgba(0, 0, 0, 0.3) 0 2px 4px;
+}
+
+.location_holder .icon {
+    aspect-ratio: 1/1;
+    height: calc(100% - 10px);
+    flex: 0 0 auto;
+    margin: 5px;
+    margin-right: 0;
+    background-size: 66%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(icon/location.svg);
+}
+
+.location_holder .location {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: 700;
+    user-select: none;
+}
+
+.caption_holder {
+    width: 100%;
+    height: fit-content;
+    background-color: rgba(0, 0, 0, 0.15);
+    padding-top: 12px;
+    padding-bottom: 12px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0 2px 4px;
+}
+
+.caption_holder.hide {
+    display: none;
+}
+
+.caption {
+    width: calc(100% - 40px);
+    margin-left: auto;
+    margin-right: auto;
+    height: fit-content;
+    min-height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.7);
+    user-select: none;
+}
+
 * {
     color: white;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -663,5 +825,30 @@ nav.sidebar.hide {
 
     .sidebar_icon {
         display: block;
+    }
+
+    .photo_holder {
+        top: 50px;
+        height: calc(100dvh - 50px);
+    }
+
+    .photo_holder_main {
+        aspect-ratio: unset;
+        transform: unset;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        flex-direction: column;
+        overflow-y: auto;
+    }
+
+    .photo::after, .photo {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+
+    .photo_text_holder {
+        border-top-left-radius: 0;
     }
 }

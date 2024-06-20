@@ -99,7 +99,7 @@ const data = {
                 name: 'Downtown Frederick',
                 people: ['Paris'],
                 id: [1043, 1074, 1213, 1307, 1311, 1314]
-            },        
+            },
         }
     }
 }
@@ -188,7 +188,7 @@ function timeSelect(event) {
     if (!first_entry) { return false };
     first_entry.scrollIntoView({ behavior: 'smooth', block: 'center' });
     first_entry.classList.add('highlight');
-    setTimeout(function() {
+    setTimeout(function () {
         first_entry.classList.remove('highlight');
     }, 250)
 
@@ -201,7 +201,7 @@ function timeSelect(event) {
 }
 
 function profileTop() {
-    card.scrollIntoView({behavior: 'smooth', block: 'start'});
+    card.scrollIntoView({ behavior: 'smooth', block: 'start' });
     if (window.innerWidth < 767) {
         sidebar.classList.add('hide');
         content.classList.add('expand');
@@ -224,13 +224,35 @@ function findSameLocation(this_location, date) {
     return matching;
 }
 
+
+function findSamePeople(people_list, date) {
+    let this_data = data[selected_user].images;
+    let matching = {};
+
+    for (var i in this_data) {
+        if (i == date) { continue };
+        let this_photo_data = this_data[i];
+        for (var j = 0; j < people_list.length; j++) {
+            let this_person = people_list[j];
+            if (!this_photo_data.people) { continue };
+            if (!this_photo_data.people.includes(this_person)) { continue };
+            if (!matching[this_person]) {
+                matching[this_person] = {};
+            }
+            matching[this_person][i] = this_photo_data;
+        }
+    }
+
+    return matching;
+}
+
 function generateRelatedAlbums(date) {
     let this_data = data[selected_user].images;
     let included_people = this_data[date].people;
     let this_location = this_data[date].name;
 
     let matching_location = findSameLocation(this_location, date);
-    //let matching_people = findSamePeople(included_people, date);
+    let matching_people = findSamePeople(included_people, date);
 
     if (Object.keys(matching_location).length > 0) {
         let this_related_holder = related_placeholder.cloneNode(true);
@@ -239,11 +261,28 @@ function generateRelatedAlbums(date) {
         this_title.classList.add('hide');
         this_related_holder.removeAttribute('id');
         bottom_info.appendChild(this_related_holder);
-        
+
         for (var i in matching_location) {
             makeAlbum(selected_user, i, this_flex);
         }
-    }    
+    }
+
+    for (var i in matching_people) {
+        let this_array = matching_people[i];
+        if (this_array.length < 1) { continue };
+        let this_related_holder = related_placeholder.cloneNode(true);
+        let this_title = this_related_holder.querySelector('.related_title');
+        let this_flex = this_related_holder.querySelector('.related_flex');
+        this_title.innerHTML = i;
+        this_related_holder.classList.add('has_title');
+        this_related_holder.removeAttribute('id');
+        bottom_info.appendChild(this_related_holder);
+
+        for (var j in this_array) {
+            let this_entry_data = this_array[j];
+            makeAlbum(selected_user, j, this_flex);
+        }
+    }
 }
 
 function photoSelect(event) {
@@ -275,9 +314,9 @@ function photoSelect(event) {
         for (var i = 0; i < previous_related.length; i++) {
             previous_related[i].remove();
         }
-    
+
         photo_holder.classList.remove('hide');
-        generateRelatedAlbums(this_date);    
+        generateRelatedAlbums(this_date);
     }
     selected_location = this_data.name;
 }
@@ -356,7 +395,7 @@ function loadCard(name) {
 function loadPerson(name) {
     let this_data = data[name];
     let images = this_data.images;
-    
+
     loadCard(name);
     for (var i in images) {
         makeAlbum(name, i);

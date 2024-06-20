@@ -757,6 +757,7 @@ nav.sidebar.hide {
     display: flex;
     flex-direction: column;
     width: calc((100vh - 20px) * ( 1 - (5 / 8)));
+    overflow-y: auto;
 }
 
 .top_info {
@@ -776,8 +777,12 @@ nav.sidebar.hide {
     flex-direction: column;
 }
 
+.related_holder.has_title {
+    height: 230px;
+}
+
 .related_holder span {
-    height: 50px;
+    height: 30px;
     width: calc(100% - 20px);
     margin-left: auto;
     margin-right: auto;

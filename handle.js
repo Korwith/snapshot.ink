@@ -1,194 +1,434 @@
-const image_data = {
-    '06/09/24': [1175, 1186, 1188, 1193, 1198, 1199, 1203, 1209],
-    '06/05/23': [3895, 3900, 3902, 3906, 3913, 3915, 3950],
-    '06/02/23': [3690, 3678, 3675],
-    '04/09/23': ['0410', '0415', '0591', '0595', '0602'],
-    '04/08/23': ['0323', '0353', '0389', '0539', '0378'],
-    '04/02/23': ['0022', '0034', '0068', '0071'],
-    '03/25/23': [9485, 9540, 9626, 9629],
-    '02/03/23': [6991, 7031, 7034, 7143, 7138, 7131, 7078, 7052, 7049],
-    '01/24/23': [6647, 6642, 6625, 6623, 6599],
-    '01/06/23': [5425, 5426, 5439, 5462, 5465, 5515],
-    '12/12/22': [4498, 4514, 4519, 4535, 4536, 4540],
-    '12/04/22': [4277, 4322, 4330, 4331, 4348],
-    '09/18/22': [1818, 1839, 1842, 1866, 1899, 1905, 1907],
-    '08/23/22': ['0680', '0701', '0706', '0726', '0748'],
-    '08/16/22': ['0494', '0501', '0506', '0509', '0522', '0526', '0534', '0539'],
-    '08/06/22': [8610, 8613, 8614, 8632, 8661, 8673],
-    '07/21/22': [8086, 8090, 8093, 8120, 8153],
-    '11/28/21': [1043, 1074, 1213, 1307, 1311, 1314],
+const data = {
+    'Thaddeus': {
+        card: {
+            bio: 'Web Developer',
+            icon: 'icon/kircic.png',
+        },
+
+        social: {
+            'cashapp': 'https://cash.app/$thadreal',
+            'discord': 'https://discord.com/invite/p8ZZXZqnag',
+            'github': 'https://github.com/Korwith',
+            'instagram': 'https://www.instagram.com/thadcoolfr/',
+            'youtube': 'https://www.youtube.com/channel/UCLcCNfyLG_jQev4MdkHtCZw',
+        },
+
+        images: {
+            '06/09/24': {
+                name: 'Railroad Tracks & Monocacy River',
+                people: ['Paris'],
+                id: [1175, 1186, 1188, 1193, 1198, 1199, 1203, 1209],
+            },
+            '06/05/23': {
+                name: 'Downtown Frederick',
+                people: ['Paris'],
+                id: [3895, 3900, 3902, 3906, 3913, 3915, 3950],
+            },
+            '06/02/23': {
+                name: 'North Crossing "Suge" Island',
+                people: ['Riley', 'Liam', 'Paris'],
+                id: [3690, 3678, 3675]
+            },
+            '04/09/23': {
+                name: 'Amber Meadows & Downtown',
+                caption: 'Easter 2023, I walked 20 miles on this day.',
+                id: ['0410', '0415', '0591', '0595', '0602']
+            },
+            '04/08/23': {
+                name: 'Amber Meadows & Downtown',
+                id: ['0323', '0353', '0389', '0539', '0378']
+            },
+            '04/02/23': {
+                name: 'North Crossing "Suge" Island',
+                people: ['Riley', 'Edin'],
+                id: ['0022', '0034', '0068', '0071']
+            },
+            '03/25/23': {
+                name: 'Downtown Frederick',
+                people: ['Riley', 'Liam'],
+                id: [9485, 9540, 9626, 9629]
+            },
+            '02/03/23': {
+                name: 'Downtown Frederick',
+                people: ['Riley'],
+                id: [6991, 7031, 7034, 7143, 7138, 7131, 7078, 7052, 7049]
+            },
+            '01/24/23': {
+                name: 'Amber Meadows',
+                people: ['Riley'],
+                id: [6647, 6642, 6625, 6623, 6599],
+            },
+            '01/06/23': {
+                name: 'North Crossing',
+                id: [5425, 5426, 5439, 5462, 5465, 5515],
+            },
+            '12/12/22': {
+                name: 'Downtown Frederick',
+                people: ['Riley'],
+                id: [4498, 4514, 4519, 4535, 4536, 4540],
+            },
+            '12/04/22': {
+                name: 'Downtown Frederick',
+                id: [4277, 4322, 4330, 4331, 4348]
+            },
+            '09/18/22': {
+                name: 'Frederick Fair',
+                people: ['Edin', 'Max', 'Riley'],
+                id: [1818, 1839, 1842, 1866, 1899, 1905, 1907]
+            },
+            '08/23/22': {
+                name: 'Downtown Frederick',
+                people: ['Evan', 'Riley'],
+                id: ['0680', '0701', '0706', '0726', '0748'],
+            },
+            '08/16/22': {
+                name: 'Downtown Frederick',
+                id: ['0494', '0501', '0506', '0509', '0522', '0526', '0534', '0539']
+            },
+            '08/06/22': {
+                name: 'Downtown Frederick',
+                people: ['Riley'],
+                id: [8610, 8613, 8614, 8632, 8661, 8673]
+            },
+            '07/21/22': {
+                name: 'Hershey Park',
+                people: ['Riley'],
+                id: [8086, 8090, 8093, 8120, 8153]
+            },
+            '11/28/21': {
+                name: 'Downtown Frederick',
+                people: ['Paris'],
+                id: [1043, 1074, 1213, 1307, 1311, 1314]
+            },
+        }
+    }
 }
-const date_title = {
-    '06/09/24': 'Railroad Tracks & Monocacy River',
-    '06/05/23': 'Downtown Frederick',
-    '06/02/23': 'North Crossing "Suge" Island',
-    '04/09/23': 'Amber Meadows & Downtown',
-    '04/08/23': 'Amber Meadows & Downtown',
-    '04/02/23': 'North Crossing "Suge" Island',
-    '03/25/23': 'Downtown Frederick',
-    '02/03/23': 'Downtown Frederick',
-    '01/24/23': 'Amber Meadows',
-    '01/06/23': 'North Crossing',
-    '12/12/22': 'Downtown Frederick',
-    '12/04/22': 'Downtown Frederick',
-    '09/18/22': 'Frederick Fair',
-    '08/23/22': 'Downtown Frederick',
-    '08/16/22': 'Downtown Frederick',
-    '08/06/22': 'Downtown Frederick',
-    '07/21/22': 'Hershey Park',
-    '11/28/21': 'Downtown Frederick',
-}
-const included_people = {
-    '11/28/21': 'Paris',
-    '09/18/22': 'Edin, Max, Riley',
-    '08/23/22': 'Evan & Riley',
-    '07/21/22': 'Riley',
-    '08/06/22': 'Riley',
-    '12/12/22': 'Riley',
-    '01/24/23': 'Riley',
-    '02/03/23': 'Riley',
-    '03/25/23': 'Riley & Liam',
-    '04/02/23': 'Riley & Edin',
-    '06/02/23': 'Riley, Liam, Paris',
-    '06/05/23': 'Paris',
-    '06/09/24': 'Paris',
-}
 
-const content_holder = document.querySelector('.content_holder');
-const placeholder = document.querySelector('#placeholder');
+const n_to_month = {
+    '01': 'January',
+    '02': 'February',
+    '03': 'March',
+    '04': 'April',
+    '05': 'May',
+    '06': 'June',
+    '07': 'July',
+    '08': 'August',
+    '09': 'September',
+    '10': 'October',
+    '11': 'November',
+    '12': 'December'
+};
 
-function makeAlbum(date) {
-    let this_data = image_data[date];
-    let this_title = date_title[date];
-    let this_people = included_people[date];
+const user_select = document.querySelector('.user_select');
+const user_select_icon = user_select.querySelector('.icon');
+const user_select_name = user_select.querySelector('.username');
+const card = document.querySelector('.card');
+const profile = card.querySelector('.profile');
+const profile_icon = profile.querySelector('.icon');
+const profile_about = profile.querySelector('.about');
+const profile_username = profile_about.querySelector('.username');
+const profile_bio = profile_about.querySelector('.bio');
+const social_holder = document.querySelector('.social');
 
-    let clone = placeholder.cloneNode(true);
-    let clone_media = clone.querySelector('.entry_media');
-    let clone_photo_select = clone.querySelector('.photo_select');
-    let clone_title = clone.querySelector('.entry_header .title');
-    let clone_date = clone.querySelector('.info.date');
-    let clone_featured_holder = clone.querySelector('.featured_holder');
-    let clone_featured = clone.querySelector('.info.person');
-    let clone_back = clone.querySelector('.shift_left');
-    let clone_next = clone.querySelector('.shift_right');
+const content = document.querySelector('.content');
+const sidebar = document.querySelector('nav.sidebar');
+const sidebar_button = document.querySelector('.sidebar_icon');
+const nav_select = sidebar.querySelector('.nav_select');
+const entry_placeholder = document.querySelector('#placeholder.entry');
+const nav_placeholder = document.querySelector('#placeholder.nav_button');
+const entry_grid = document.querySelector('.grid_holder');
 
-    let preview = `url(media/preview/IMG_${this_data[0]}.jpg)`;
-    let full = `url(media/ful/IMG_${this_data[0]}.jpg)`;
-    
-    clone_title.innerHTML = this_title;
-    clone_date.innerHTML = date;
-    if (this_people) {
-        clone_featured.innerHTML = 'w/ ' + this_people;
+const photo_holder = document.querySelector('.photo_holder');
+const photo = photo_holder.querySelector('.photo');
+const photo_holder_date = photo_holder.querySelector('span.date');
+const photo_holder_people = photo_holder.querySelector('span.people');
+const photo_holder_location = photo_holder.querySelector('span.location');
+const photo_holder_caption = photo_holder.querySelector('span.caption');
+const photo_holder_link = photo_holder.querySelector('a.link');
+const exit = photo_holder.querySelector('.main.exit');
+const mobile_exit = photo_holder.querySelector('.mobile.exit');
+const related_placeholder = document.querySelector('#placeholder.related_holder');
+const bottom_info = document.querySelector('.photo_side .bottom_info');
+const back_photo = photo_holder.querySelector('.photo_back');
+const next_photo = photo_holder.querySelector('.photo_next');
+
+let selected_user;
+let selected_location;
+
+function handleSidebar() {
+    let hidden = sidebar.classList.contains('hide');
+    if (!hidden) {
+        sidebar.classList.add('hide');
+        content.classList.add('expand');
     } else {
-        clone_featured_holder.classList.add('hide');
+        sidebar.classList.remove('hide');
+        content.classList.remove('expand');
     }
 
-    if (this_data.length > 1) {
-        for (var i = 0; i < this_data.length; i++) {
-            let dot_div = document.createElement('div');
-            dot_div.setAttribute('button_index', i);
-            clone_photo_select.appendChild(dot_div);
-            if (i >= 1) { continue };
-            dot_div.classList.add('active');
-        }
-        clone_photo_select.classList.remove('hide');
+    let photo_menu_hidden = photo_holder.classList.contains('hide');
+    if (!photo_menu_hidden) {
+        photo_holder.classList.add('hide');
+        selected_location = null;
     }
-
-    clone.removeAttribute('id');
-    clone.setAttribute('index', 0);
-    clone.setAttribute('max', this_data.length);
-    clone.setAttribute('date', date);
-    clone_photo_select.setAttribute('date', date);
-    clone_media.style.setProperty('--preview_url', preview);
-    content_holder.appendChild(clone);
-    clone_photo_select.onclick = photoSelect;
-    
-    (function(clone, clone_back, clone_next, clone_photo_select) {
-        clone_back.onclick = function() {
-            backPhoto(clone);
-        }
-
-        clone_next.onclick = function() {
-            nextPhoto(clone);
-        }
-
-        function handleTouchMove(event) {
-            let touch = event.touches[0];
-            let circle_count = clone_photo_select.querySelectorAll('div').length - 1;
-            let photo_select_rect = clone_photo_select.getBoundingClientRect();
-            let photo_select_left = photo_select_rect.left;
-            let photo_select_right = photo_select_rect.right;
-            let photo_select_width = photo_select_rect.width;
-            let adjusted_x = touch.clientX;
-            if (touch.x < photo_select_left) {
-                adjusted_x = photo_select_left;
-            } else if (touch.x > photo_select_right) {
-                adjusted_x = photo_select_right;
-            }
-
-            let new_x = adjusted_x - photo_select_left;
-            let offset = new_x / photo_select_width;
-            let found_index = Math.round(circle_count * offset);
-            shiftPhoto(clone, found_index);
-            event.preventDefault();
-        }
-
-        clone_photo_select.addEventListener('touchstart', function(event) {
-            document.addEventListener('touchmove', handleTouchMove, {passive: false});
-            handleTouchMove(event);
-        });
-
-        clone_photo_select.addEventListener('touchend', function(event) {
-            document.removeEventListener('touchmove', handleTouchMove);
-        });
-    })(clone, clone_back, clone_next, clone_photo_select, clone_photo_select);
 }
+sidebar_button.addEventListener('mouseup', handleSidebar);
+
+function handleResize() {
+    if (window.innerWidth < 767) {
+        sidebar.classList.add('hide');
+        content.classList.add('expand');
+    }
+    content.focus();
+}
+window.onresize = handleResize;
+handleResize();
+
+function timeSelect(event) {
+    let month = event.target.getAttribute('month');
+    let year = event.target.getAttribute('year');
+    let first_entry = entry_grid.querySelector(`.entry[month="${month}"][year="${year}"]`);
+    if (!first_entry) { return false };
+    first_entry.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    first_entry.classList.add('highlight');
+    setTimeout(function () {
+        first_entry.classList.remove('highlight');
+    }, 250)
+
+    if (window.innerWidth < 767) {
+        sidebar.classList.add('hide');
+        content.classList.add('expand');
+    }
+
+    content.focus();
+}
+
+function profileTop() {
+    card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (window.innerWidth < 767) {
+        sidebar.classList.add('hide');
+        content.classList.add('expand');
+    }
+
+    content.focus();
+}
+
+function findSameLocation(this_location, date) {
+    let this_data = data[selected_user].images;
+    let matching = {};
+
+    for (var i in this_data) {
+        if (i == date) { continue };
+        let this_photo_data = this_data[i];
+        if (this_photo_data.name != this_location) { continue };
+        matching[i] = this_photo_data;
+    }
+
+    return matching;
+}
+
+
+function findSamePeople(people_list, date) {
+    if (!people_list) { return {} };
+    let this_data = data[selected_user].images;
+    let matching = {};
+
+    for (var i in this_data) {
+        if (i == date) { continue };
+        let this_photo_data = this_data[i];
+        for (var j = 0; j < people_list.length; j++) {
+            let this_person = people_list[j];
+            if (!this_photo_data.people) { continue };
+            if (!this_photo_data.people.includes(this_person)) { continue };
+            if (!matching[this_person]) {
+                matching[this_person] = {};
+            }
+            matching[this_person][i] = this_photo_data;
+        }
+    }
+
+    return matching;
+}
+
+function generateRelatedAlbums(date) {
+    let this_data = data[selected_user].images;
+    let included_people = this_data[date].people;
+    let this_location = this_data[date].name;
+
+    let matching_location = findSameLocation(this_location, date);
+    let matching_people = findSamePeople(included_people, date);
+
+    if (Object.keys(matching_location).length > 0) {
+        let this_related_holder = related_placeholder.cloneNode(true);
+        let this_title = this_related_holder.querySelector('.related_title');
+        let this_flex = this_related_holder.querySelector('.related_flex');
+        this_title.classList.add('hide');
+        this_related_holder.removeAttribute('id');
+        bottom_info.appendChild(this_related_holder);
+
+        for (var i in matching_location) {
+            makeAlbum(selected_user, i, this_flex);
+        }
+    }
+
+    for (var i in matching_people) {
+        let this_array = matching_people[i];
+        if (this_array.length < 1) { continue };
+        let this_related_holder = related_placeholder.cloneNode(true);
+        let this_title = this_related_holder.querySelector('.related_title');
+        let this_flex = this_related_holder.querySelector('.related_flex');
+        this_title.innerHTML = i;
+        this_related_holder.classList.add('has_title');
+        this_related_holder.removeAttribute('id');
+        bottom_info.appendChild(this_related_holder);
+
+        for (var j in this_array) {
+            let this_entry_data = this_array[j];
+            makeAlbum(selected_user, j, this_flex);
+        }
+    }
+}
+
+function photoNext() {
+    let photo_date = photo.getAttribute('date');
+    let photo_index = parseInt(photo.getAttribute('index'));
+    let photo_info = data[selected_user].images[photo_date];
+    if (photo_index + 1 >= photo_info.id.length) { return false };
+    let new_url = `url(media/preview/IMG_${photo_info.id[photo_index + 1]}.jpg)`;
+    photo.setAttribute('index', photo_index + 1);
+    photo.style.backgroundImage = new_url;
+}
+next_photo.addEventListener('mouseup', photoNext);
+
+function photoBack() {
+    let photo_date = photo.getAttribute('date');
+    let photo_index = parseInt(photo.getAttribute('index'));
+    let photo_info = data[selected_user].images[photo_date];
+    if (photo_index - 1 <= -1) { return false };
+    let new_url = `url(media/preview/IMG_${photo_info.id[photo_index - 1]}.jpg)`;
+    photo.setAttribute('index', photo_index - 1);
+    photo.style.backgroundImage = new_url;
+}
+back_photo.addEventListener('mouseup', photoBack);
 
 function photoSelect(event) {
-    let selected_dot = event.target;
-    let selected_index = parseInt(selected_dot.getAttribute('button_index'));    
-    if (!(selected_index > -1)) { return false };
+    if (!event.target.classList.contains('entry')) { return false };
+    let this_date = event.target.getAttribute('date');
+    let this_data = data[selected_user].images[this_date];
+    let photo_id = this_data.id;
+    let first_id = photo_id[0];
 
-    let selected_frame = event.target.parentElement;
-    let selected_date = selected_frame.getAttribute('date');
-    let selected_album = document.querySelector(`.entry[date="${selected_date}"]`)
+    photo.style.backgroundImage = `url(media/preview/IMG_${first_id}.jpg)`;
+    photo.setAttribute('date', this_date);
+    photo.setAttribute('index', 0);
+    photo_holder_link.setAttribute('href', `media/full/IMG_${first_id}.jpg`);
+    photo_holder_date.innerHTML = this_date;
+    photo_holder_location.innerHTML = this_data.name;
 
-    shiftPhoto(selected_album, selected_index);
+    if (this_data.people) {
+        photo_holder_people.innerHTML = this_data.people.join(', ');
+    } else {
+        photo_holder_people.parentElement.classList.add('hide');
+    }
+
+    if (this_data.caption) {
+        photo_holder_caption.innerHTML = this_data.caption;
+    } else {
+        photo_holder_caption.parentElement.classList.add('hide');
+    }
+
+    if (!event.target.parentElement.classList.contains('related_flex')) {
+        let previous_related = bottom_info.querySelectorAll('.related_holder');
+        for (var i = 0; i < previous_related.length; i++) {
+            previous_related[i].remove();
+        }
+
+        photo_holder.classList.remove('hide');
+        generateRelatedAlbums(this_date);
+    }
+    selected_location = this_data.name;
 }
 
-function backPhoto(clone) {
-    let photo_index = parseInt(clone.getAttribute('index'));
-    if (photo_index <= 0) { return false };
-    shiftPhoto(clone, photo_index - 1);
+function hidePhotoSelect() {
+    photo_holder.classList.add('hide');
+    selected_location = null;
+}
+exit.addEventListener('mouseup', hidePhotoSelect);
+mobile_exit.addEventListener('mouseup', hidePhotoSelect);
+
+function makeAlbum(name, date, parent) {
+    let this_data = data[name].images[date];
+    let first_preview = this_data.id[0];
+    let clone = entry_placeholder.cloneNode(true);
+    let clone_date = clone.querySelector('.text.date');
+    let clone_title = clone.querySelector('.text.title');
+
+    clone.style.backgroundImage = `url(media/preview/IMG_${first_preview}.jpg)`;
+    clone_date.innerHTML = date;
+    clone_title.innerHTML = this_data.name;
+    clone.setAttribute('date', date);
+    clone.removeAttribute('id');
+    clone.onclick = photoSelect;
+
+    if (!parent) {
+        entry_grid.appendChild(clone);
+    } else {
+        parent.appendChild(clone);
+    }
+
+    let date_split = date.split('/');
+    let month = n_to_month[date_split[0]];
+    let year = date_split[2];
+    let month_select = nav_select.querySelector(`.nav_button[month="${month}"][year="${year}"]`);
+    let year_seperator = nav_select.querySelector(`hr[year="${'20' + year}"]`);
+    clone.setAttribute('month', month);
+    clone.setAttribute('year', year);
+
+    if (!year_seperator) {
+        let hr = document.createElement('hr');
+        hr.setAttribute('year', '20' + year);
+        nav_select.appendChild(hr);
+    }
+
+    if (month_select) { return false };
+    let button_clone = nav_placeholder.cloneNode(true);
+    let button_text = button_clone.querySelector('.section');
+    button_text.innerHTML = month;
+    button_clone.setAttribute('month', month);
+    button_clone.setAttribute('year', year);
+    button_clone.removeAttribute('id');
+    button_clone.onclick = timeSelect;
+    nav_select.appendChild(button_clone);
 }
 
-function nextPhoto(clone) {
-    let photo_index = parseInt(clone.getAttribute('index'));
-    let photo_max = parseInt(clone.getAttribute('max')) - 1;
-    if (photo_index >= photo_max) { return false };
-    shiftPhoto(clone, photo_index + 1);
+function loadCard(name) {
+    let this_data = data[name];
+    user_select_icon.style.backgroundImage = `url(${this_data.card.icon})`;
+    user_select_name.innerHTML = name;
+    profile_username.innerHTML = name;
+    profile_bio.innerHTML = this_data.card.bio;
+    profile_icon.style.backgroundImage = `url(${this_data.card.icon})`;
+
+    for (var i in this_data.social) {
+        let link = document.createElement('a');
+        let button = document.createElement('div');
+        button.classList.add(i);
+        link.setAttribute('target', '_blank');
+        link.setAttribute('href', this_data.social[i]);
+        link.appendChild(button);
+        social_holder.appendChild(link);
+    }
 }
 
-function shiftPhoto(clone, index) {
-    let photo_date = clone.getAttribute('date');
-    let photo_data = image_data[photo_date];
-    let index_id = photo_data[index];
-    if (!index_id) { return false };
+function loadPerson(name) {
+    let this_data = data[name];
+    let images = this_data.images;
 
-    let entry_media = clone.querySelector('.entry_media');
-    let photo_select = clone.querySelector('.photo_select');
-    let active_select = photo_select.querySelector('.active');
-    let new_select = photo_select.querySelectorAll('div')[index];
-    active_select.classList.remove('active');
-    new_select.classList.add('active');
-    
-    let preview = `url(media/preview/IMG_${index_id}.jpg)`;
-    let full = `url(media/ful/IMG_${index_id}.jpg)`;
+    loadCard(name);
+    for (var i in images) {
+        makeAlbum(name, i);
+    }
 
-    clone.setAttribute('index', index);
-    entry_media.style.setProperty('--preview_url', preview);
+    selected_user = name;
 }
 
-for (var i in image_data) {
-    makeAlbum(i);
-}
+loadPerson('Thaddeus');

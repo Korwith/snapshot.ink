@@ -144,6 +144,7 @@ const photo_holder_date = photo_holder.querySelector('span.date');
 const photo_holder_people = photo_holder.querySelector('span.people');
 const photo_holder_location = photo_holder.querySelector('span.location');
 const photo_holder_caption = photo_holder.querySelector('span.caption');
+const photo_holder_link = photo_holder.querySelector('a.link');
 
 let selected_user;
 
@@ -207,6 +208,7 @@ function photoSelect(event) {
     let first_id = photo_id[0];
 
     photo.style.backgroundImage = `url(media/preview/IMG_${first_id}.jpg)`;
+    photo_holder_link.setAttribute('href', `media/full/IMG_${first_id}.jpg`);
     photo_holder_date.innerHTML = this_date;
     photo_holder_location.innerHTML = this_data.name;
 

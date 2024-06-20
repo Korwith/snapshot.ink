@@ -1051,5 +1051,11 @@ nav.sidebar.hide {
 
     .photo_side {
         width: 100%;
+        height: fit-content;
+        overflow-y: unset;
+    }
+
+    .photo_holder_main {
+        overflow-y: auto;
     }
 }

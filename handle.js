@@ -293,22 +293,26 @@ function photoNext() {
     let photo_index = parseInt(photo.getAttribute('index'));
     let photo_info = data[selected_user].images[photo_date];
     if (photo_index + 1 >= photo_info.id.length) { return false };
-    let new_url = `url(media/preview/IMG_${photo_info.id[photo_index + 1]}.jpg)`;
-    photo.setAttribute('index', photo_index + 1);
-    photo.style.backgroundImage = new_url;
+    shiftPhoto(photo_index + 1);
 }
 next_photo.addEventListener('mouseup', photoNext);
 
 function photoBack() {
     let photo_date = photo.getAttribute('date');
     let photo_index = parseInt(photo.getAttribute('index'));
-    let photo_info = data[selected_user].images[photo_date];
     if (photo_index - 1 <= -1) { return false };
-    let new_url = `url(media/preview/IMG_${photo_info.id[photo_index - 1]}.jpg)`;
-    photo.setAttribute('index', photo_index - 1);
-    photo.style.backgroundImage = new_url;
+    shiftPhoto(photo_index - 1);
 }
 back_photo.addEventListener('mouseup', photoBack);
+
+function shiftPhoto(photo_index) {
+    let photo_date = photo.getAttribute('date');
+    let photo_info = data[selected_user].images[photo_date];
+    let new_url = `media/preview/IMG_${photo_info.id[photo_index]}.jpg`;
+    photo.setAttribute('index', photo_index);
+    photo_holder_link.setAttribute('href', new_url);
+    photo.style.backgroundImage = `url(${new_url})`;
+}
 
 function photoSelect(event) {
     if (!event.target.classList.contains('entry')) { return false };

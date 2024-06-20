@@ -906,6 +906,7 @@ nav.sidebar.hide {
         flex-direction: column;
         overflow-y: auto;
         overflow-x: hidden;
+        border-radius: 0;
     }
 
     .photo {

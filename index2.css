@@ -983,6 +983,6 @@ nav.sidebar.hide {
     }
 
     .photo_side {
-        width: 100vw;
+        width: 100%;
     }
 }

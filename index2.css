@@ -753,6 +753,53 @@ nav.sidebar.hide {
 
 .photo_side {
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    width: calc((100vh - 20px) * ( 1 - (5 / 8)));
+}
+
+.top_info {
+    flex: 0 0 auto;
+    height: fit-content;
+    width: 100%;
+}
+
+.bottom_info {
+    flex: 1;
+}
+
+.related_holder {
+    height: 250px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.related_holder span {
+    height: 50px;
+    width: calc(100% - 20px);
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    font-weight: 700;
+    font-size: 1.15rem;
+}
+
+.related_flex {
+    flex: 1;
+    display: flex;
+    overflow-x: auto;
+    padding-right: 10px;
+}
+
+.related_flex .entry {
+    height: calc(100% - 20px);
+    width: unset;
+    margin: 10px;
+    margin-right: 0;
 }
 
 .photo_info_holder span {
@@ -933,5 +980,9 @@ nav.sidebar.hide {
 
     .photo .exit {
         display: block;
+    }
+
+    .photo_side {
+        width: 100vw;
     }
 }

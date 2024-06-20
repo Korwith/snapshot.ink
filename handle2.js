@@ -147,6 +147,8 @@ const photo_holder_caption = photo_holder.querySelector('span.caption');
 const photo_holder_link = photo_holder.querySelector('a.link');
 const exit = photo_holder.querySelector('.main.exit');
 const mobile_exit = photo_holder.querySelector('.mobile.exit');
+const related_placeholder = document.querySelector('#placeholder.related_holder');
+const bottom_info = document.querySelector('.photo_side .bottom_info');
 
 let selected_user;
 
@@ -202,6 +204,41 @@ function profileTop() {
     content.focus();
 }
 
+function findSameLocation(this_location, date) {
+    let this_data = data[selected_user].images;
+    let matching = {};
+
+    for (var i in this_data) {
+        if (i == date) { continue };
+        let this_photo_data = this_data[i];
+        if (this_photo_data.name != this_location) { continue };
+        matching[i] = this_photo_data;
+    }
+
+    return matching;
+}
+
+function generateRelatedAlbums(date) {
+    let this_data = data[selected_user].images;
+    let included_people = this_data[date].people;
+    let this_location = this_data[date].name;
+
+    let matching_location = findSameLocation(this_location, date);
+
+    if (Object.keys(matching_location).length > 0) {
+        let this_related_holder = related_placeholder.cloneNode(true);
+        let this_title = this_related_holder.querySelector('.related_title');
+        let this_flex = this_related_holder.querySelector('.related_flex');
+        this_title.innerHTML = 'In ' + this_location;
+        this_related_holder.removeAttribute('id');
+        bottom_info.appendChild(this_related_holder);
+        
+        for (var i in matching_location) {
+            makeAlbum(selected_user, i, this_flex);
+        }
+    }    
+}
+
 function photoSelect(event) {
     if (!event.target.classList.contains('entry')) { return false };
     let this_date = event.target.getAttribute('date');
@@ -226,7 +263,13 @@ function photoSelect(event) {
         photo_holder_caption.parentElement.classList.add('hide');
     }
 
+    let previous_related = bottom_info.querySelectorAll('.related_holder');
+    for (var i = 0; i < previous_related.length; i++) {
+        previous_related[i].remove();
+    }
+
     photo_holder.classList.remove('hide');
+    generateRelatedAlbums(this_date);
 }
 
 function hidePhotoSelect() {
@@ -235,7 +278,7 @@ function hidePhotoSelect() {
 exit.addEventListener('mouseup', hidePhotoSelect);
 mobile_exit.addEventListener('mouseup', hidePhotoSelect);
 
-function makeAlbum(name, date) {
+function makeAlbum(name, date, parent) {
     let this_data = data[name].images[date];
     let first_preview = this_data.id[0];
     let clone = entry_placeholder.cloneNode(true);
@@ -248,7 +291,12 @@ function makeAlbum(name, date) {
     clone.setAttribute('date', date);
     clone.removeAttribute('id');
     clone.onclick = photoSelect;
-    entry_grid.appendChild(clone);
+
+    if (!parent) {
+        entry_grid.appendChild(clone);
+    } else {
+        parent.appendChild(clone);
+    }
 
     let date_split = date.split('/');
     let month = n_to_month[date_split[0]];
@@ -271,8 +319,8 @@ function makeAlbum(name, date) {
     button_clone.setAttribute('month', month);
     button_clone.setAttribute('year', year);
     button_clone.removeAttribute('id');
-    nav_select.appendChild(button_clone);
     button_clone.onclick = timeSelect;
+    nav_select.appendChild(button_clone);
 }
 
 function loadCard(name) {

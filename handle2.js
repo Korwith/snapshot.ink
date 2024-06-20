@@ -155,13 +155,18 @@ let selected_location;
 
 function handleSidebar() {
     let hidden = sidebar.classList.contains('hide');
-
     if (!hidden) {
         sidebar.classList.add('hide');
         content.classList.add('expand');
     } else {
         sidebar.classList.remove('hide');
         content.classList.remove('expand');
+    }
+
+    let photo_menu_hidden = photo_holder.classList.contains('hide');
+    if (!photo_menu_hidden) {
+        photo_holder.classList.add('hide');
+        selected_location = null;
     }
 }
 sidebar_button.addEventListener('mouseup', handleSidebar);

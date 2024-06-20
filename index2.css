@@ -584,6 +584,7 @@ nav.sidebar.hide {
     font-weight: 700;
     text-wrap: nowrap;
     user-select: none;
+    height: 100%;
 }
 
 .title_holder {
@@ -769,7 +770,7 @@ nav.sidebar.hide {
 }
 
 .related_holder {
-    height: 250px;
+    height: 200px;
     width: 100%;
     display: flex;
     flex-direction: column;

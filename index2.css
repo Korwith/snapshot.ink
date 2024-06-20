@@ -788,6 +788,10 @@ nav.sidebar.hide {
     font-size: 1.15rem;
 }
 
+.related_holder span.hide {
+    display: none;
+}
+
 .related_flex {
     flex: 1;
     display: flex;

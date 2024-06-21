@@ -315,7 +315,7 @@ function shiftPhoto(photo_index) {
     let photo_info = data[selected_user].images[photo_date];
     let new_url = `media/preview/IMG_${photo_info.id[photo_index]}.jpg`;
     photo.setAttribute('index', photo_index);
-    photo_holder_link.setAttribute('href', new_url);
+    photo_holder_link.setAttribute('href', `media/full/IMG_${photo_info.id[photo_index]}.jpg`);
     photo.style.backgroundImage = `url(${new_url})`;
 }
 

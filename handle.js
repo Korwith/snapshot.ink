@@ -374,6 +374,27 @@ function hidePhotoSelect() {
 exit.addEventListener('mouseup', hidePhotoSelect);
 mobile_exit.addEventListener('mouseup', hidePhotoSelect);
 
+function getMonthCount(date, name) {
+    let date_split = date.split('/');
+    let month = date_split[0];
+    let year = date_split[2];
+    
+    let this_data = data[name].images;
+    let count = 0;
+
+    for (var i in this_data) {
+        let this_split = i.split('/');
+        let this_month = this_split[0];
+        let this_year = this_split[2];
+
+        if (month != this_month) { continue };
+        if (year != this_year) { continue };
+        count++;
+    }
+
+    return count;
+}
+
 function makeAlbum(name, date, parent) {
     let this_data = data[name].images[date];
     let first_preview = this_data.id[0];
@@ -411,7 +432,7 @@ function makeAlbum(name, date, parent) {
     if (month_select) { return false };
     let button_clone = nav_placeholder.cloneNode(true);
     let button_text = button_clone.querySelector('.section');
-    button_text.innerHTML = month;
+    button_text.innerHTML = `${month} (${getMonthCount(date, name)})`;
     button_clone.setAttribute('month', month);
     button_clone.setAttribute('year', year);
     button_clone.removeAttribute('id');

@@ -19,6 +19,11 @@ const data = {
                 people: ['Paris'],
                 id: [1175, 1186, 1188, 1193, 1198, 1199, 1203, 1209],
             },
+            '06/19/23': {
+                name: 'Downtown Frederick',
+                people: ['Paris'],
+                id: [5336, 5385, 5350, 5331, 5321, 5314, 5411],
+            },
             '06/18/23': {
                 name: 'Monocacy River',
                 people: ['Paris'],
@@ -286,7 +291,7 @@ function generateRelatedAlbums(date) {
         let this_related_holder = related_placeholder.cloneNode(true);
         let this_title = this_related_holder.querySelector('.related_title');
         let this_flex = this_related_holder.querySelector('.related_flex');
-        this_title.innerHTML = i;
+        this_title.innerHTML = 'With ' + i;
         this_related_holder.classList.add('has_title');
         this_related_holder.removeAttribute('id');
         bottom_info.appendChild(this_related_holder);

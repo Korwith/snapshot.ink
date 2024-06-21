@@ -15,9 +15,14 @@ const data = {
 
         images: {
             '06/09/24': {
-                name: 'Railroad Tracks & Monocacy River',
+                name: 'Railroad Tracks',
                 people: ['Paris'],
                 id: [1175, 1186, 1188, 1193, 1198, 1199, 1203, 1209],
+            },
+            '06/18/23': {
+                name: 'Monocacy River',
+                people: ['Paris'],
+                id: [5046, 5091, 5107, 5152, 5156, 5168],
             },
             '06/16/23': {
                 name: 'Downtown Frederick',

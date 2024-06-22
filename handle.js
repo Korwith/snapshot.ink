@@ -19,6 +19,11 @@ const data = {
                 people: ['Paris'],
                 id: [1175, 1186, 1188, 1193, 1198, 1199, 1203, 1209],
             },
+            '08/05/23': {
+                name: 'Downtown Frederick',
+                people: ['Paris', 'Riley'],
+                id: [9061, 9054, 8879, 9096, 9074],
+            },
             '08/04/23': {
                 name: 'Downtown Frederick',
                 people: ['Paris'],
@@ -339,7 +344,6 @@ function generateRelatedAlbums(date) {
         bottom_info.appendChild(this_related_holder);
 
         for (var j in this_array) {
-            let this_entry_data = this_array[j];
             makeAlbum(selected_user, j, this_flex);
         }
     }

@@ -19,6 +19,11 @@ const data = {
                 people: ['Paris'],
                 id: [1175, 1186, 1188, 1193, 1198, 1199, 1203, 1209],
             },
+            '06/26/23': {
+                name: 'Downtown Frederick',
+                people: ['Paris'],
+                id: [5935, 5947, 5949, 5976],
+            },
             '06/19/23': {
                 name: 'Downtown Frederick',
                 people: ['Paris'],
@@ -152,6 +157,8 @@ const nav_select = sidebar.querySelector('.nav_select');
 const entry_placeholder = document.querySelector('#placeholder.entry');
 const nav_placeholder = document.querySelector('#placeholder.nav_button');
 const entry_grid = document.querySelector('.grid_holder');
+const profile_button = document.querySelector('.nav_button.profile_button');
+const profile_button_text = profile_button.querySelector('.section');
 
 const photo_holder = document.querySelector('.photo_holder');
 const photo = photo_holder.querySelector('.photo');
@@ -468,6 +475,7 @@ function loadPerson(name) {
         makeAlbum(name, i);
     }
 
+    profile_button_text.innerHTML = `Profile (${Object.keys(images).length})`;
     selected_user = name;
 }
 

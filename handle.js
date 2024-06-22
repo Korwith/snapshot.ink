@@ -19,6 +19,11 @@ const data = {
                 people: ['Paris'],
                 id: [1175, 1186, 1188, 1193, 1198, 1199, 1203, 1209],
             },
+            '07/21/23': {
+                name: 'Amber Meadows',
+                people: ['Paris'],
+                id: [7991, 7993, 8015],
+            },
             '07/20/23': {
                 name: 'Rosehill Manor',
                 people: ['Cody', 'Paris'],

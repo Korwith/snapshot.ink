@@ -161,6 +161,21 @@ const data = {
                 id: [1043, 1074, 1213, 1307, 1311, 1314]
             },
         }
+    },
+
+    'Riley': {
+        card: {
+            bio: 'Video Creator',
+            icon: 'icon/riley.webp',
+        },
+
+        social: {
+            'instagram': 'https://www.instagram.com/worlds_a_fuck/',
+        },
+
+        images: {
+
+        },
     }
 }
 
@@ -179,9 +194,12 @@ const n_to_month = {
     '12': 'December'
 };
 
-const user_select = document.querySelector('.user_select');
+const user_select = document.querySelector('.user_select.top');
 const user_select_icon = user_select.querySelector('.icon');
 const user_select_name = user_select.querySelector('.username');
+const user_select_menu = document.querySelector('.user_select_menu');
+const user_select_placeholder = document.querySelector('#placeholder.user_select');
+
 const card = document.querySelector('.card');
 const profile = card.querySelector('.profile');
 const profile_icon = profile.querySelector('.icon');
@@ -214,8 +232,27 @@ const bottom_info = document.querySelector('.photo_side .bottom_info');
 const back_photo = photo_holder.querySelector('.photo_back');
 const next_photo = photo_holder.querySelector('.photo_next');
 
+const search_icon = document.querySelector('.search_icon');
+const search_bar = document.querySelector('input.search_bar');
+
 let selected_user;
 let selected_location;
+
+function searchStart() {
+    search_icon.classList.add('hide');
+    search_bar.classList.remove('hide');
+}
+search_icon.addEventListener('mouseup', searchStart);
+
+function handleUserSelect() {
+    let toggle = user_select_menu.classList.contains('toggle');
+    if (!toggle) {
+        user_select_menu.classList.add('toggle');
+    } else {
+        user_select_menu.classList.remove('toggle');
+    }
+}
+user_select.addEventListener('mouseup', handleUserSelect);
 
 function handleSidebar() {
     let hidden = sidebar.classList.contains('hide');
@@ -486,6 +523,28 @@ function makeAlbum(name, date, parent) {
     nav_select.appendChild(button_clone);
 }
 
+function updateUserSelect(name) {
+    for (var i in data) {
+        if (i == name) { continue };
+        // add another thing
+        let user_data = data[i];
+        let us_clone = user_select_placeholder.cloneNode(true);
+        let us_icon = us_clone.querySelector('.icon');
+        let us_name = us_clone.querySelector('.username');
+
+        us_name.innerHTML = i;
+        us_icon.style.backgroundImage = `url(${user_data.card.icon})`;
+        us_clone.removeAttribute('id');
+        user_select_menu.appendChild(us_clone);
+        
+        (function(us_clone, i) {
+            us_clone.onclick = function() {
+                loadPerson(i);
+            };
+        })(us_clone, i);
+    }
+}
+
 function loadCard(name) {
     let this_data = data[name];
     user_select_icon.style.backgroundImage = `url(${this_data.card.icon})`;
@@ -506,16 +565,27 @@ function loadCard(name) {
 }
 
 function loadPerson(name) {
+    cleanup();
     let this_data = data[name];
     let images = this_data.images;
 
     loadCard(name);
+    updateUserSelect(name);
     for (var i in images) {
         makeAlbum(name, i);
     }
 
     profile_button_text.innerHTML = `Profile (${Object.keys(images).length})`;
     selected_user = name;
+}
+
+function cleanup() {
+    let grid_content = entry_grid.querySelectorAll('.entry');
+
+    for (var i = 0; i < grid_content.length; i++) {
+        entry_grid.removeChild(grid_content[i]);
+    }
+
 }
 
 loadPerson('Thaddeus');

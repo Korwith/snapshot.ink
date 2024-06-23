@@ -176,9 +176,13 @@ const data = {
             'tiktok': 'https://www.tiktok.com/@yungbootstone7'
         },
 
+        videos: [
+
+        ],
+
         images: {
             '02/09/24': {
-                name: 'Unknown Location',
+                name: "Riley's House",
                 people: ['Sadie'],
                 id: [2526, 2527, 2528, 2532]
             }
@@ -584,6 +588,10 @@ function loadPerson(name) {
 
     profile_button_text.innerHTML = `Profile (${Object.keys(images).length})`;
     selected_user = name;
+
+    if (user_select_menu.classList.contains('toggle')) {
+        handleUserSelect();
+    }
 }
 
 function cleanup() {

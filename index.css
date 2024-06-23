@@ -11,7 +11,7 @@ h2 {
     margin-top: 10px;
     margin-bottom: 10px;
     text-align: center;
-    color: rgba(255, 255, 255, 0.9);
+    color: white;
 }
 
 #placeholder {
@@ -574,6 +574,19 @@ nav.sidebar.hide {
     background-size: 70%;
 }
 
+.all_video {
+    width: 100%;
+    height: fit-content;
+}
+
+.all_video.hide {
+    display: none;
+}
+
+.video_header {
+    margin-bottom: 0;
+}
+
 .video_holder {
     width: calc(90% - 20px);
     height: 200px;
@@ -589,14 +602,6 @@ nav.sidebar.hide {
     height: 100%;
     display: flex;
     align-items: center;
-}
-
-.video_holder.hide {
-    display: none;
-}
-
-.video_hr.hide {
-    display: none;
 }
 
 .video {

@@ -260,6 +260,7 @@ const profile_username = profile_about.querySelector('.username');
 const profile_bio = profile_about.querySelector('.bio');
 const social_holder = document.querySelector('.social');
 
+const all_video = document.querySelector('.all_video');
 const video_holder = document.querySelector('.video_holder');
 const video_hr = document.querySelector('.video_hr');
 
@@ -595,8 +596,7 @@ function updateUserSelect(name) {
 
 function loadVideos(name) {
     let this_data = data[name].videos;
-    video_holder.classList.remove('hide');
-    video_hr.classList.remove('hide');
+    all_video.classList.remove('hide');
 
     for (var i = this_data.length - 1; i >= 0; i--) {
         let this_link = document.createElement('a');
@@ -660,8 +660,7 @@ function loadPerson(name, push) {
     if (this_data.videos) {
         loadVideos(name);
     } else {
-        video_holder.classList.add('hide');
-        video_hr.classList.add('hide');
+        all_video.classList.add('hide');
     }
 }
 

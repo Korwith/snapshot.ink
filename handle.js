@@ -287,28 +287,12 @@ const bottom_info = document.querySelector('.photo_side .bottom_info');
 const back_photo = photo_holder.querySelector('.photo_back');
 const next_photo = photo_holder.querySelector('.photo_next');
 
-const search_icon = document.querySelector('.search_icon');
-const search_bar = document.querySelector('input.search_bar');
-
 let selected_user;
 let selected_location;
 
-function handleSearch() {
-    let searching = !search_bar.classList.contains('hide');
-    if (!searching) {
-        search_icon.classList.add('hide');
-        search_bar.classList.remove('hide');
-        user_select_menu.classList.add('min');
-    } else {
-        search_icon.classList.remove('hide');
-        search_bar.classList.add('hide');
-        user_select_menu.classList.remove('min');
-    }
-}
-search_icon.addEventListener('mouseup', handleSearch);
-
 function handleUserSelect() {
     let toggle = user_select_menu.classList.contains('toggle');
+
     if (!toggle) {
         user_select_menu.classList.add('toggle');
     } else {

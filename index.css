@@ -3,6 +3,17 @@ body {
     background-color: black;
 }
 
+h2 {
+    width: calc(90% - 40px);
+    padding: 0;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.9);
+}
+
 #placeholder {
     display: none;
 }
@@ -57,30 +68,6 @@ header {
     position: relative;
 }
 
-.search_bar {
-    display: block;
-    width: calc(100% - 10px);
-    height: calc(100% - 10px);
-    max-width: 300px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    padding: 0;
-    outline: 0;
-    margin: 5px;
-    margin-right: 0;
-    padding-left: 10px;
-    padding-right: 10px;
-    border-radius: 8px;
-    background-color: rgba(255, 255, 255, 0.05);
-    box-sizing: border-box;
-    font-weight: 600;
-    transition: opacity 0.2s;
-}
-
-.search_bar.hide {
-    opacity: 0;
-    pointer-events: none;
-}
-
 .logo {
     height: 100%;
     width: fit-content;
@@ -98,21 +85,6 @@ header {
     background-size: cover;
     filter: brightness(0) invert(1);
     cursor: pointer;
-}
-
-.search_icon {
-    background-size: 70%;
-    background-image: url(icon/search.svg);
-    background-repeat: no-repeat;
-    background-position: center;
-    aspect-ratio: 1/1;
-    flex: 0 0 auto;
-    height: 100%;
-    cursor: pointer;
-}
-
-.search_icon.hide {
-    display: none;
 }
 
 .logo .title {
@@ -216,8 +188,8 @@ nav.sidebar.hide {
 .user_select_menu {
     transform: translateY(-1px);
     padding: 5px;
-    padding-left: 7px;
-    padding-bottom: 7px;
+    padding-left: 5px;
+    padding-bottom: 5px;
     min-width: 180px;
     height: fit-content;
     display: flex;
@@ -640,7 +612,6 @@ nav.sidebar.hide {
     overflow-y: auto;
     justify-content: center;
     gap: 10px;
-    padding-top: 20px;
     padding-bottom: 20px;
 }
 
@@ -739,10 +710,10 @@ nav.sidebar.hide {
 
 .icon.video {
     flex: 0 0 auto;
-    height: calc(100% - 16px);
+    height: calc(100% - 14px);
     margin: 8px;
     aspect-ratio: 1/1;
-    background-size: 85%;
+    background-size: 80%;
     background-position: center;
     background-repeat: no-repeat;
     background-image: url(icon/video.svg);

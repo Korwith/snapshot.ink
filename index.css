@@ -594,6 +594,37 @@ nav.sidebar.hide {
     background-size: 70%;
 }
 
+.video_holder {
+    width: calc(90% - 20px);
+    height: 200px;
+    display: flex;
+    overflow-x: auto;
+    gap: 10px;
+    align-items: center;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.video_holder a {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.video_holder.hide {
+    display: none;
+}
+
+.video_hr.hide {
+    display: none;
+}
+
+.video {
+    height: calc(100% - 20px);
+    width: unset !important;
+    aspect-ratio: 16/9 !important;
+}
+
 .grid_holder {
     width: 100%;
     display: flex;
@@ -633,6 +664,7 @@ nav.sidebar.hide {
 }
 
 .info_holder {
+    position: absolute;
     width: fit-content;
     height: fit-content;
     display: flex;
@@ -695,6 +727,17 @@ nav.sidebar.hide {
     aspect-ratio: 1/1;
     background-size: cover;
     background-image: url(icon/location.svg);
+}
+
+.icon.video {
+    flex: 0 0 auto;
+    height: calc(100% - 16px);
+    margin: 8px;
+    aspect-ratio: 1/1;
+    background-size: 85%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(icon/video.svg);
 }
 
 .text.title {

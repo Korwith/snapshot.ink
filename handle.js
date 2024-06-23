@@ -177,12 +177,53 @@ const data = {
         },
 
         videos: [
-
+            {
+                name: 'Homies Tape 1',
+                thumbnail: 'homiestape1.png',
+                link: 'https://www.youtube.com/watch?v=j1FrkuC4lPk',
+                date: '01/01/22',
+            },
+            {
+                name: 'Homies Tape 2',
+                thumbnail: 'homiestape2.png',
+                link: 'https://www.youtube.com/watch?v=MPtJjS6f-4s',
+                date: '02/14/22'
+            },
+            {
+                name: 'Homies Tape 3',
+                thumbnail: 'homiestape3.png',
+                link: 'https://www.youtube.com/watch?v=sNjinZgbw98',
+                date: '03/31/22'
+            },
+            {
+                name: 'Homies Tape 4',
+                thumbnail: 'homiestape4.png',
+                link: 'https://www.youtube.com/watch?v=0zBHh7WyCrI',
+                date: '06/07/22',
+            },
+            {
+                name: 'Homies Tape 5',
+                thumbnail: 'homiestape5.png',
+                link: 'https://www.youtube.com/watch?v=t8-SiBabwAo',
+                date: '08/16/22'
+            },
+            {
+                name: 'Homies Tape 6',
+                thumbnail: 'homiestape6.png',
+                link: 'https://www.youtube.com/watch?v=92msqUVUNAA',
+                date: '01/01/23',
+            },
+            {
+                name: 'Homies Tape 7',
+                thumbnail: 'homiestape7.png',
+                link: 'https://www.youtube.com/watch?v=jfX9XHAZXBQ',
+                date: '06/03/23',
+            }
         ],
 
         images: {
             '02/09/24': {
-                name: "Riley's House",
+                name: "Mountaindale",
                 people: ['Sadie'],
                 id: [2526, 2527, 2528, 2532]
             }
@@ -218,6 +259,9 @@ const profile_about = profile.querySelector('.about');
 const profile_username = profile_about.querySelector('.username');
 const profile_bio = profile_about.querySelector('.bio');
 const social_holder = document.querySelector('.social');
+
+const video_holder = document.querySelector('.video_holder');
+const video_hr = document.querySelector('.video_hr');
 
 const content = document.querySelector('.content');
 const sidebar = document.querySelector('nav.sidebar');
@@ -556,6 +600,33 @@ function updateUserSelect(name) {
     }
 }
 
+function loadVideos(name) {
+    let this_data = data[name].videos;
+    video_holder.classList.remove('hide');
+    video_hr.classList.remove('hide');
+
+    for (var i = this_data.length - 1; i >= 0; i--) {
+        let this_link = document.createElement('a');
+        let video_data = this_data[i];
+        let this_clone = entry_placeholder.cloneNode(true);
+        let this_date = this_clone.querySelector('.text.date');
+        let this_name = this_clone.querySelector('.text.title');
+        let this_location_icon = this_clone.querySelector('.icon.location');
+
+        this_link.setAttribute('target', '_blank');
+        this_link.setAttribute('href', video_data.link);
+        this_name.innerHTML = video_data.name;
+        this_date.innerHTML = video_data.date;
+        this_clone.style.backgroundImage = `url(video/${video_data.thumbnail})`;
+        this_location_icon.classList.remove('location');
+        this_location_icon.classList.add('video');
+        this_clone.classList.add('video');
+        this_clone.removeAttribute('id');
+        this_link.appendChild(this_clone);
+        video_holder.appendChild(this_link);
+    }
+}
+
 function loadCard(name) {
     let this_data = data[name];
     user_select_icon.style.backgroundImage = `url(${this_data.card.icon})`;
@@ -592,6 +663,13 @@ function loadPerson(name) {
     if (user_select_menu.classList.contains('toggle')) {
         handleUserSelect();
     }
+
+    if (this_data.videos) {
+        loadVideos(name);
+    } else {
+        video_holder.classList.add('hide');
+        video_hr.classList.add('hide');
+    }
 }
 
 function cleanup() {
@@ -599,6 +677,7 @@ function cleanup() {
     let us_content = user_select_menu.querySelectorAll('.user_select');
     let social_content = social_holder.querySelectorAll('a');
     let sidebar_content = nav_select.querySelectorAll('hr, .nav_button');
+    let video_content = video_holder.querySelectorAll('.entry');
 
     for (var i = 0; i < grid_content.length; i++) {
         entry_grid.removeChild(grid_content[i]);
@@ -616,6 +695,10 @@ function cleanup() {
     for (var i = 0; i < sidebar_content.length; i++) {
         if (sidebar_content[i].classList.contains('profile_button')) { continue };
         nav_select.removeChild(sidebar_content[i]);
+    }
+
+    for (var i = 0; i < video_content.length; i++) {
+        video_content[i].remove();
     }
 }
 

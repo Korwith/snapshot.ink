@@ -53,6 +53,7 @@ const data = {
                 name: 'Downtown Frederick',
                 people: ['Riley', 'Cody'],
                 id: [6593, 6588, 6582, 6603, 6649],
+                caption: 'I walked 18 miles on this day.'
             },
             '07/04/23': {
                 name: 'Downtown Frederick',
@@ -73,6 +74,7 @@ const data = {
                 name: 'Monocacy River',
                 people: ['Paris'],
                 id: [5046, 5091, 5107, 5152, 5156, 5168],
+                caption: 'Honestly one of the best days of my life.'
             },
             '06/16/23': {
                 name: 'Downtown Frederick',

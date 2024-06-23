@@ -1030,6 +1030,7 @@ nav.sidebar.hide {
     padding-top: 12px;
     padding-bottom: 12px;
     box-shadow: rgba(0, 0, 0, 0.15) 0 2px 4px;
+    margin-bottom: 10px;
 }
 
 .caption_holder.hide {

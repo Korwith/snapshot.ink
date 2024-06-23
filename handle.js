@@ -171,10 +171,17 @@ const data = {
 
         social: {
             'instagram': 'https://www.instagram.com/worlds_a_fuck/',
+            'youtube': 'https://www.youtube.com/@homies_tape',
+            'discord': 'https://discord.com/users/563816563292241940',
+            'tiktok': 'https://www.tiktok.com/@yungbootstone7'
         },
 
         images: {
-
+            '02/09/24': {
+                name: 'Unknown Location',
+                people: ['Sadie'],
+                id: [2526, 2527, 2528, 2532]
+            }
         },
     }
 }
@@ -406,9 +413,9 @@ back_photo.addEventListener('mouseup', photoBack);
 function shiftPhoto(photo_index) {
     let photo_date = photo.getAttribute('date');
     let photo_info = data[selected_user].images[photo_date];
-    let new_url = `media/preview/IMG_${photo_info.id[photo_index]}.jpg`;
+    let new_url = `media/preview/${selected_user}/IMG_${photo_info.id[photo_index]}.jpg`;
     photo.setAttribute('index', photo_index);
-    photo_holder_link.setAttribute('href', `media/full/IMG_${photo_info.id[photo_index]}.jpg`);
+    photo_holder_link.setAttribute('href', `media/full/${selected_user}/IMG_${photo_info.id[photo_index]}.jpg`);
     photo.style.backgroundImage = `url(${new_url})`;
 }
 
@@ -419,10 +426,10 @@ function photoSelect(event) {
     let photo_id = this_data.id;
     let first_id = photo_id[0];
 
-    photo.style.backgroundImage = `url(media/preview/IMG_${first_id}.jpg)`;
+    photo.style.backgroundImage = `url(media/preview/${selected_user}/IMG_${first_id}.jpg)`;
     photo.setAttribute('date', this_date);
     photo.setAttribute('index', 0);
-    photo_holder_link.setAttribute('href', `media/full/IMG_${first_id}.jpg`);
+    photo_holder_link.setAttribute('href', `media/full/${selected_user}/IMG_${first_id}.jpg`);
     photo_holder_date.innerHTML = this_date;
     photo_holder_location.innerHTML = this_data.name;
 
@@ -485,7 +492,7 @@ function makeAlbum(name, date, parent) {
     let clone_date = clone.querySelector('.text.date');
     let clone_title = clone.querySelector('.text.title');
 
-    clone.style.backgroundImage = `url(media/preview/IMG_${first_preview}.jpg)`;
+    clone.style.backgroundImage = `url(media/preview/${name}/IMG_${first_preview}.jpg)`;
     clone_date.innerHTML = date;
     clone_title.innerHTML = this_data.name;
     clone.setAttribute('date', date);
@@ -581,11 +588,27 @@ function loadPerson(name) {
 
 function cleanup() {
     let grid_content = entry_grid.querySelectorAll('.entry');
+    let us_content = user_select_menu.querySelectorAll('.user_select');
+    let social_content = social_holder.querySelectorAll('a');
+    let sidebar_content = nav_select.querySelectorAll('hr, .nav_button');
 
     for (var i = 0; i < grid_content.length; i++) {
         entry_grid.removeChild(grid_content[i]);
     }
 
+    for (var i = 0; i < us_content.length; i++) {
+        if (us_content[i].classList.contains('top')) { continue };
+        user_select_menu.removeChild(us_content[i]);
+    }
+
+    for (var i = 0; i < social_content.length; i++) {
+        social_holder.removeChild(social_content[i]);
+    }
+
+    for (var i = 0; i < sidebar_content.length; i++) {
+        if (sidebar_content[i].classList.contains('profile_button')) { continue };
+        nav_select.removeChild(sidebar_content[i]);
+    }
 }
 
 loadPerson('Thaddeus');

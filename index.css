@@ -216,7 +216,9 @@ nav.sidebar.hide {
 .user_select_menu {
     transform: translateY(-1px);
     padding: 5px;
-    width: 180px;
+    padding-left: 7px;
+    padding-bottom: 7px;
+    min-width: 180px;
     height: fit-content;
     display: flex;
     flex-direction: column;
@@ -580,6 +582,15 @@ nav.sidebar.hide {
 
 .social div.youtube {
     background-image: url(icon/youtube.svg);
+    background-size: 70%;
+}
+
+.social div.tiktok::before {
+    background: linear-gradient(to bottom right, #00504d, black, #470017);
+}
+
+.social div.tiktok {
+    background-image: url(icon/tiktok.svg);
     background-size: 70%;
 }
 

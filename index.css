@@ -225,7 +225,7 @@ nav.sidebar.hide {
     gap: 5px;
     border-bottom-left-radius: 8px;
     box-sizing: border-box;
-    transition: height 0.2s, background-color 0.2s, border 0.2s;
+    transition: height 0.2s, background-color 0.2s, border 0.2s, min-width 0.2s;
     position: relative;
     border: 1px solid rgba(0, 0, 0, 0);
 }
@@ -245,6 +245,14 @@ nav.sidebar.hide {
     background-color: #151515;
     border-left: 1px solid rgba(255, 255, 255, 0.1);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.user_select_menu.min {
+    min-width: 40px;
+}
+
+.user_select_menu.min .username {
+    display: none;
 }
 
 .user_select_menu.toggle .user_select, .user_select.top {

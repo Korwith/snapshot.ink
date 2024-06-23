@@ -293,11 +293,19 @@ const search_bar = document.querySelector('input.search_bar');
 let selected_user;
 let selected_location;
 
-function searchStart() {
-    search_icon.classList.add('hide');
-    search_bar.classList.remove('hide');
+function handleSearch() {
+    let searching = !search_bar.classList.contains('hide');
+    if (!searching) {
+        search_icon.classList.add('hide');
+        search_bar.classList.remove('hide');
+        user_select_menu.classList.add('min');
+    } else {
+        search_icon.classList.remove('hide');
+        search_bar.classList.add('hide');
+        user_select_menu.classList.remove('min');
+    }
 }
-search_icon.addEventListener('mouseup', searchStart);
+search_icon.addEventListener('mouseup', handleSearch);
 
 function handleUserSelect() {
     let toggle = user_select_menu.classList.contains('toggle');
@@ -516,7 +524,7 @@ function getMonthCount(date, name) {
     let date_split = date.split('/');
     let month = date_split[0];
     let year = date_split[2];
-    
+
     let this_data = data[name].images;
     let count = 0;
 
@@ -591,9 +599,9 @@ function updateUserSelect(name) {
         us_icon.style.backgroundImage = `url(${user_data.card.icon})`;
         us_clone.removeAttribute('id');
         user_select_menu.appendChild(us_clone);
-        
-        (function(us_clone, i) {
-            us_clone.onclick = function() {
+
+        (function (us_clone, i) {
+            us_clone.onclick = function () {
                 loadPerson(i);
                 history.pushState(null, null, '#id=' + i.toLowerCase());
             };
@@ -704,10 +712,16 @@ function cleanup() {
 }
 
 function readPushState() {
-    if (window.location.href.includes('id=')) {
-        let detected_user = window.location.href.split('id=')[1].toLowerCase();
+    if (window.location.href.includes('#id=')) {
+        let detected_user = window.location.href.split('#id=')[1].toLowerCase();
         let upper = detected_user.charAt(0).toUpperCase() + detected_user.slice(1);
-        loadPerson(upper);
+
+        if (data[upper]) {
+            loadPerson(upper);
+        } else {
+            loadPerson('Thaddeus');
+            history.pushState(null, null, window.location.href.split('#id=')[0]);
+        }
     } else {
         loadPerson('Thaddeus');
     }

@@ -41,19 +41,19 @@ header {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.sidebar_icon {
-    aspect-ratio: 1/1;
+.left_header {
     height: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 108%;
-    background-image: url(icon/sidebar_button.svg);
-    cursor: pointer;
-    transition: opacity 0.2s;
+    flex: 0 0 auto;
+    display: flex;
+    float: left;
 }
 
-.sidebar_icon:hover {
-    opacity: 0.8;
+.right_header {
+    height: 100%;
+    flex: 1;
+    float: right;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .logo {
@@ -72,6 +72,19 @@ header {
     background-position: center;
     background-size: cover;
     filter: brightness(0) invert(1);
+    cursor: pointer;
+}
+
+.search_icon {
+    background-size: 70%;
+    background-image: url(icon/search.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    aspect-ratio: 1/1;
+    flex: 0 0 auto;
+    height: 100%;
+    cursor: pointer;
+    opacity: 0.8;
 }
 
 .logo .title {
@@ -173,10 +186,7 @@ nav.sidebar.hide {
 }
 
 .user_select {
-    position: absolute;
-    right: 0;
     margin: 5px;
-    margin-left: 20px;
     width: 180px;
     height: calc(100% - 10px);
     display: flex;
@@ -997,7 +1007,7 @@ nav.sidebar.hide {
         font-size: 0.9rem;
     }
 
-    .logo {
+    .logo .title {
         display: none;
     }
 

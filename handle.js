@@ -192,7 +192,7 @@ const social_holder = document.querySelector('.social');
 
 const content = document.querySelector('.content');
 const sidebar = document.querySelector('nav.sidebar');
-const sidebar_button = document.querySelector('.sidebar_icon');
+const sidebar_button = document.querySelector('.logo .icon');
 const nav_select = sidebar.querySelector('.nav_select');
 const entry_placeholder = document.querySelector('#placeholder.entry');
 const nav_placeholder = document.querySelector('#placeholder.nav_button');

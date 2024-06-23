@@ -385,6 +385,7 @@ nav.sidebar.hide {
     margin-left: auto;
     margin-right: auto;
     background-size: cover;
+    padding-bottom: 15px;
 }
 
 .profile {
@@ -435,6 +436,82 @@ nav.sidebar.hide {
     color: rgba(255, 255, 255, 0.7);
 }
 
+.site_ad {
+    display: flex;
+    min-width: 250px;
+    width: fit-content;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-top: 15px;
+    height: 70px;
+    border-radius: 12px;
+    background: linear-gradient(to bottom right, #0067CD, #007600);
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    text-decoration: none;
+}
+
+.site_ad.hide {
+    display: none;
+}
+
+.site_ad::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    border: 3px solid rgba(0, 0, 0, 0.5);
+    box-sizing: border-box;
+    transition: border 0.2s;
+}
+
+.site_ad:hover::after {
+    border: 3px solid white;
+}
+
+.site_ad .icon {
+    aspect-ratio: 1/1;
+    float: 0 0 auto;
+    height: calc(100% - 20px);
+    margin: 10px;
+    background-size: cover;
+    background-image: url(https://www.google.com/s2/favicons?domain=https://www.kircic.org&sz=128);
+}
+
+.site_ad .info {
+    flex: 1;
+    height: calc(100% - 10px);
+    margin: 5px;
+    margin-left: 0;
+    margin-right: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-right: 5px;
+}
+
+.site_ad .info span {
+    display: flex;
+    height: calc(50% - 5px);
+    align-items: center;
+}
+
+.site_ad .info span.ad_name {
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: white;
+}
+
+.site_ad .info span.ad_text {
+    font-weight: 400;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
 .social {
     min-height: 45px;
     height: fit-content;
@@ -445,7 +522,6 @@ nav.sidebar.hide {
     justify-content: center;
     flex-wrap: wrap;
     gap: 8px;
-    margin-bottom: 20px;
 }
 
 .social div {

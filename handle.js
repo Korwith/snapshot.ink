@@ -261,6 +261,7 @@ const profile_about = profile.querySelector('.about');
 const profile_username = profile_about.querySelector('.username');
 const profile_bio = profile_about.querySelector('.bio');
 const social_holder = document.querySelector('.social');
+const site_ad = document.querySelector('.site_ad');
 
 const all_video = document.querySelector('.all_video');
 const video_holder = document.querySelector('.video_holder');
@@ -641,7 +642,7 @@ function loadCard(name) {
     }
 }
 
-function loadPerson(name, push) {
+function loadPerson(name) {
     cleanup();
     let this_data = data[name];
     let images = this_data.images;
@@ -663,6 +664,12 @@ function loadPerson(name, push) {
         loadVideos(name);
     } else {
         all_video.classList.add('hide');
+    }
+
+    if (name == 'Thaddeus') {
+        site_ad.classList.remove('hide');
+    } else {
+        site_ad.classList.add('hide');
     }
 }
 

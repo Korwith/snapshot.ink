@@ -595,6 +595,7 @@ function updateUserSelect(name) {
         (function(us_clone, i) {
             us_clone.onclick = function() {
                 loadPerson(i);
+                history.pushState(null, null, '#id=' + i.toLowerCase());
             };
         })(us_clone, i);
     }
@@ -646,7 +647,7 @@ function loadCard(name) {
     }
 }
 
-function loadPerson(name) {
+function loadPerson(name, push) {
     cleanup();
     let this_data = data[name];
     let images = this_data.images;
@@ -702,4 +703,13 @@ function cleanup() {
     }
 }
 
-loadPerson('Thaddeus');
+function readPushState() {
+    if (window.location.href.includes('id=')) {
+        let detected_user = window.location.href.split('id=')[1].toLowerCase();
+        let upper = detected_user.charAt(0).toUpperCase() + detected_user.slice(1);
+        loadPerson(upper);
+    } else {
+        loadPerson('Thaddeus');
+    }
+}
+readPushState();

@@ -1188,4 +1188,10 @@ nav.sidebar.hide {
     .photo_holder_main {
         overflow-y: auto;
     }
+
+    .video_holder {
+        width: calc(100% - 20px);
+        padding-left: 10px;
+        padding-right: 10px;
+    }
 }

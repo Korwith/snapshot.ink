@@ -19,6 +19,34 @@ const data = {
                 people: ['Paris'],
                 id: [1175, 1186, 1188, 1193, 1198, 1199, 1203, 1209],
             },
+            '10/21/23': {
+                name: 'Downtown Frederick',
+                people: ["Paris"],
+                id: [4541, 4548, 4542, 4552, 4556],
+            },
+            '10/10/23': {
+                name: 'Downtown Frederick',
+                people: ['Paris'],
+                id: [3518, 3519, 3514, 3520, 3527]
+            },
+            '09/21/23': {
+                name: 'Amber Meadows',
+                id: [2342, 2338, 2340, 2344, 2333]
+            },
+            '09/16/23': {
+                name: 'Frederick Fair',
+                people: ['Paris'],
+                id: [2006, 2086, 2020]
+            },
+            '09/12/23': {
+                name: 'Amber Meadows',
+                id: [1419, 1441, 1433, 1421, 1416],
+            },
+            '09/05/23': {
+                name: 'Downtown Frederick',
+                people: ['Paris'],
+                id: ['0786', '0787', '0778']
+            },
             '08/13/23': {
                 name: 'Downtown Frederick',
                 people: ['Paris'],

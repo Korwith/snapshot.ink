@@ -19,6 +19,21 @@ const data = {
                 people: ['Paris'],
                 id: [1175, 1186, 1188, 1193, 1198, 1199, 1203, 1209],
             },
+            '08/08/23': {
+                name: 'Ocean City',
+                people: ['Riley'],
+                id: [9385, 9396, 9397, 9343, 9334]
+            },
+            '08/07/23': {
+                name: 'Ocean City',
+                people: ['Riley'],
+                id: [9278, 9245, 9301, 143136, 143148]
+            },
+            '08/06/23': {
+                name: 'Downtown Frederick',
+                people: ['Paris'],
+                id: [9125, 9128, 9138, 9141, 9180]
+            },
             '08/05/23': {
                 name: 'Downtown Frederick',
                 people: ['Paris', 'Riley'],
@@ -98,7 +113,7 @@ const data = {
             },
             '04/08/23': {
                 name: 'Amber Meadows & Downtown',
-                id: ['0323', '0353', '0389', '0539', '0378']
+                id: ['0359', '0323', '0353', '0389', '0539', '0378']
             },
             '04/02/23': {
                 name: 'North Crossing "Suge" Island',

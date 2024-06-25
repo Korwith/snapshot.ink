@@ -19,12 +19,26 @@ const data = {
                 people: ['Paris'],
                 id: [1175, 1186, 1188, 1193, 1198, 1199, 1203, 1209],
             },
+            '06/01/24': {
+                name: 'Downtown Frederick',
+                people: ['Paris'],
+                id: ['0728', '0723', '0720', '0716', '0694']
+            },
+            '05/25/24': {
+                name: 'Rosehill',
+                people: ['Paris'],
+                id: ['0538', '0537', '0533', '0529']
+            },
+            '05/14/24': {
+                name: 'Downtown Frederick',
+                id: ['0088', '0083', '0087', '0094']
+            },
             '05/08/24': {
                 name: 'FCC',
                 id: [73652, 73624, 73720, 73716]
             },
             '04/22/24': {
-                name: 'Rosehill Manor',
+                name: 'Rosehill',
                 people: ['Paris'],
                 id: [3026, 3028, 3018, 3016, 3029]
             },
@@ -149,7 +163,7 @@ const data = {
                 id: [7991, 7993, 8015],
             },
             '07/20/23': {
-                name: 'Rosehill Manor',
+                name: 'Rosehill',
                 people: ['Cody', 'Paris'],
                 id: [7933, 7936, 7927, 7918],
             },

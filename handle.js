@@ -14,6 +14,16 @@ const data = {
         },
 
         images: {
+            '06/13/24': {
+                name: 'Railroad Tracks',
+                people: ['Riley', 'Paris'],
+                id: [1404, 1399, 1400],
+            },
+            '06/12/24': {
+                name: 'Downtown Frederick',
+                people: ['Paris'],
+                id: [1472, 1466, 1460, 1458, 1448, 1447, 1442]
+            },
             '06/09/24': {
                 name: 'Railroad Tracks',
                 people: ['Paris'],

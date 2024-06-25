@@ -19,6 +19,14 @@ const data = {
                 people: ['Paris'],
                 id: [1175, 1186, 1188, 1193, 1198, 1199, 1203, 1209],
             },
+            '11/17/23': {
+                name: 'Amber Meadows',
+                id: [7777, 7780, 7785, 7787, 7788],
+            },
+            '10/29/23': {
+                name: 'Downtown Frederick',
+                id: [5137, 5133, 5130, 5128, 5127, 5124],
+            },
             '10/24/23': {
                 name: 'Downtown Frederick',
                 people: ['Paris'],

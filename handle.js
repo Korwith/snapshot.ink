@@ -24,6 +24,11 @@ const data = {
                 people: ['Paris'],
                 id: [1472, 1466, 1460, 1458, 1448, 1447, 1442]
             },
+            '06/10/24': {
+                name: 'Monocacy Crossing',
+                people: ['Kobi', 'Ariel'],
+                id: [1239, 1238, 1250, 1284]
+            },
             '06/09/24': {
                 name: 'Railroad Tracks',
                 people: ['Paris'],

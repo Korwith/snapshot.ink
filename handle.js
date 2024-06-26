@@ -362,6 +362,10 @@ const data = {
         ],
 
         images: {
+            '06/20/24': {
+                name: 'Beach House',
+                id: [5005, 4993]
+            },
             '06/01/24': {
                 name: 'Mountaindale',
                 id: [4659, 4656, 4661, 4663]

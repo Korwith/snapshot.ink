@@ -645,8 +645,10 @@ function photoSelect(event) {
         }
 
         photo_holder.classList.remove('hide');
+        photo_holder.scrollIntoView({ behavior: 'smooth', block: 'end' });
         generateRelatedAlbums(this_date);
     }
+
     selected_location = this_data.name;
 }
 

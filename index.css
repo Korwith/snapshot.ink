@@ -910,7 +910,7 @@ nav.sidebar.hide {
 }
 
 .photo_back::after {
-    background-image: url(icon/left.svg);
+    background-image: url(icon/arrow_left.PNG);
 }
 
 .photo_next {
@@ -918,7 +918,7 @@ nav.sidebar.hide {
 }
 
 .photo_next::after {
-    background-image: url(icon/right.svg);
+    background-image: url(icon/arrow_right.PNG);
 }
 
 .photo_text_holder {

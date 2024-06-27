@@ -804,6 +804,16 @@ function loadImages(name) {
     scroll_image_index++;
 }
 
+function handleScroll(event) {
+    let content_rect = content.getBoundingClientRect();
+    let scroll_bottom = content.scrollTop + content_rect.height;
+    
+    if (scroll_bottom + 100 > content.scrollHeight) {
+        loadImages(selected_user);
+    }
+}
+content.addEventListener('scroll', handleScroll);
+
 function loadPerson(name) {
     cleanup();
     let this_data = data[name];
@@ -832,7 +842,6 @@ function loadPerson(name) {
         site_ad.classList.add('hide');
     }
 }
-
 
 function cleanup() {
     let grid_content = entry_grid.querySelectorAll('.entry');

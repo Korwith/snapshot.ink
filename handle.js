@@ -483,7 +483,10 @@ function timeSelect(event) {
     let month = event.target.getAttribute('month');
     let year = event.target.getAttribute('year');
     let first_entry = entry_grid.querySelector(`.entry[month="${month}"][year="${year}"]`);
-    if (!first_entry) { return false };
+    if (!first_entry) {
+        first_entry = generateTo(month, year);
+    };
+
     first_entry.scrollIntoView({ behavior: 'smooth', block: 'center' });
     first_entry.classList.add('highlight');
     setTimeout(function () {
@@ -689,35 +692,17 @@ function makeAlbum(name, date, parent) {
     clone.removeAttribute('id');
     clone.onclick = photoSelect;
 
+    let date_split = date.split('/');
+    let month = n_to_month[date_split[0]];
+    let year = date_split[2];
+    clone.setAttribute('month', month);
+    clone.setAttribute('year', year);
+
     if (!parent) {
         entry_grid.appendChild(clone);
     } else {
         parent.appendChild(clone);
     }
-
-    let date_split = date.split('/');
-    let month = n_to_month[date_split[0]];
-    let year = date_split[2];
-    let month_select = nav_select.querySelector(`.nav_button[month="${month}"][year="${year}"]`);
-    let year_seperator = nav_select.querySelector(`hr[year="${'20' + year}"]`);
-    clone.setAttribute('month', month);
-    clone.setAttribute('year', year);
-
-    if (!year_seperator) {
-        let hr = document.createElement('hr');
-        hr.setAttribute('year', '20' + year);
-        nav_select.appendChild(hr);
-    }
-
-    if (month_select) { return false };
-    let button_clone = nav_placeholder.cloneNode(true);
-    let button_text = button_clone.querySelector('.section');
-    button_text.innerHTML = `${month} (${getMonthCount(date, name)})`;
-    button_clone.setAttribute('month', month);
-    button_clone.setAttribute('year', year);
-    button_clone.removeAttribute('id');
-    button_clone.onclick = timeSelect;
-    nav_select.appendChild(button_clone);
 }
 
 function updateUserSelect(name) {
@@ -788,26 +773,71 @@ function loadCard(name) {
     }
 }
 
+function loadSidebar(name) {
+    let this_data = data[name].images;
+    for (var i in this_data) {
+        let date_split = i.split('/');
+        let month_num = date_split[0];
+        let month = n_to_month[month_num];
+        let year_num = date_split[2];
+
+        let month_select = nav_select.querySelector(`.nav_button[month="${month}"][year="${year_num}"]`);
+        let year_seperator = nav_select.querySelector(`hr[year="${'20' + year_num}"]`);
+
+        if (!year_seperator) {
+            let hr = document.createElement('hr');
+            hr.setAttribute('year', `20${year_num}`);
+            nav_select.appendChild(hr);
+        }
+        if (month_select) { continue };
+
+        let button_clone = nav_placeholder.cloneNode(true);
+        let button_text = button_clone.querySelector('.section');
+        button_text.innerHTML = `${month} (${getMonthCount(i, name)})`;
+        button_clone.setAttribute('month', month);
+        button_clone.setAttribute('year', year_num);
+        button_clone.removeAttribute('id');
+        button_clone.onclick = timeSelect;
+        nav_select.appendChild(button_clone);
+    }
+
+}
+
 let scroll_image_index = 0;
 function loadImages(name) {
+    console.log(scroll_image_index)
     let this_data = data[name];
     let images = this_data.images;
     let image_keys = Object.keys(images);
 
     for (var i = 0; i < image_keys.length; i++) {
         let this_key = image_keys[i];
-        if (i < 9*(scroll_image_index+1)) {
+        if (i > 9 * scroll_image_index && i < 9 * (scroll_image_index + 1)) {
             makeAlbum(name, this_key);
+            console.log(this_key);
         }
     }
 
     scroll_image_index++;
 }
 
+function generateTo(month, year) {
+    function tryFind() {
+        loadImages(selected_user);
+        let first_entry = entry_grid.querySelector(`.entry[month="${month}"][year="${year}"]`);
+        if (!first_entry) {
+            tryFind();
+        }
+    }
+
+    tryFind();
+    return entry_grid.querySelector(`.entry[month="${month}"][year="${year}"]`);
+}
+
 function handleScroll(event) {
     let content_rect = content.getBoundingClientRect();
     let scroll_bottom = content.scrollTop + content_rect.height;
-    
+
     if (scroll_bottom + 100 > content.scrollHeight) {
         loadImages(selected_user);
     }
@@ -822,6 +852,7 @@ function loadPerson(name) {
     loadCard(name);
     updateUserSelect(name);
     loadImages(name);
+    loadSidebar(name);
 
     profile_button_text.innerHTML = `Profile (${Object.keys(images).length})`;
     selected_user = name;

@@ -645,7 +645,7 @@ function photoSelect(event) {
         }
 
         photo_holder.classList.remove('hide');
-        photo_holder.scrollIntoView({ behavior: 'smooth', block: 'end' });
+        photo.scrollIntoView({ behavior: 'smooth', block: 'end' });
         generateRelatedAlbums(this_date);
     }
 

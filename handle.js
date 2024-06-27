@@ -619,7 +619,7 @@ function preloadAlbum(album) {
         if (i == 0) { continue };
         let this_id = image_id[i];
         let new_url = `media/preview/${selected_user}/IMG_${this_id}.jpg`;
-        new Image().url = new_url;
+        new Image().src = new_url;
     }
 }
 

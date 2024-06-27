@@ -502,7 +502,7 @@ function timeSelect(event) {
 }
 
 function profileTop() {
-    card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    card.scrollIntoView({ behavior: 'smooth', block: 'end' });
     if (window.innerWidth < 767) {
         sidebar.classList.add('hide');
         content.classList.add('expand');
@@ -812,7 +812,7 @@ function loadImages(name) {
 
     for (var i = 0; i < image_keys.length; i++) {
         let this_key = image_keys[i];
-        if (i > 9 * scroll_image_index && i < 9 * (scroll_image_index + 1)) {
+        if (i > 9 * scroll_image_index && i <= 9 * (scroll_image_index + 1)) {
             makeAlbum(name, this_key);
             console.log(this_key);
         }

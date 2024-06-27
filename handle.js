@@ -788,6 +788,22 @@ function loadCard(name) {
     }
 }
 
+let scroll_image_index = 0;
+function loadImages(name) {
+    let this_data = data[name];
+    let images = this_data.images;
+    let image_keys = Object.keys(images);
+
+    for (var i = 0; i < image_keys.length; i++) {
+        let this_key = image_keys[i];
+        if (i < 9*(scroll_image_index+1)) {
+            makeAlbum(name, this_key);
+        }
+    }
+
+    scroll_image_index++;
+}
+
 function loadPerson(name) {
     cleanup();
     let this_data = data[name];
@@ -795,9 +811,7 @@ function loadPerson(name) {
 
     loadCard(name);
     updateUserSelect(name);
-    for (var i in images) {
-        makeAlbum(name, i);
-    }
+    loadImages(name);
 
     profile_button_text.innerHTML = `Profile (${Object.keys(images).length})`;
     selected_user = name;
@@ -819,12 +833,14 @@ function loadPerson(name) {
     }
 }
 
+
 function cleanup() {
     let grid_content = entry_grid.querySelectorAll('.entry');
     let us_content = user_select_menu.querySelectorAll('.user_select');
     let social_content = social_holder.querySelectorAll('a');
     let sidebar_content = nav_select.querySelectorAll('hr, .nav_button');
     let video_content = video_holder.querySelectorAll('.entry');
+    scroll_image_index = 0;
 
     for (var i = 0; i < grid_content.length; i++) {
         entry_grid.removeChild(grid_content[i]);

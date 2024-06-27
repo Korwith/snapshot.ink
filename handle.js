@@ -612,6 +612,17 @@ function shiftPhoto(photo_index) {
     photo.style.backgroundImage = `url(${new_url})`;
 }
 
+function preloadAlbum(album) {
+    let image_id = album.id;
+
+    for (var i = 0; i < image_id.length; i++) {
+        if (i == 0) { continue };
+        let this_id = image_id[i];
+        let new_url = `media/preview/${selected_user}/IMG_${this_id}.jpg`;
+        new Image().url = new_url;
+    }
+}
+
 function photoSelect(event) {
     if (!event.target.classList.contains('entry')) { return false };
     let this_date = event.target.getAttribute('date');
@@ -650,6 +661,7 @@ function photoSelect(event) {
         photo.scrollIntoView({ behavior: 'smooth', block: 'end' });
     }
 
+    preloadAlbum(this_data);
     selected_location = this_data.name;
 }
 

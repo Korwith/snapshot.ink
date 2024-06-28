@@ -825,14 +825,14 @@ function loadSidebar(name) {
 
 let scroll_image_index = 0;
 function loadImages(name) {
-    console.log(scroll_image_index)
     let this_data = data[name];
     let images = this_data.images;
     let image_keys = Object.keys(images);
+    if (!image_keys[9 * (scroll_image_index)]) { return false };
 
     for (var i = 0; i < image_keys.length; i++) {
-        let this_key = image_keys[i-1];
-        if (i > 9 * scroll_image_index && i <= 9 * (scroll_image_index + 1)) {
+        let this_key = image_keys[i];
+        if (i >= 9 * scroll_image_index && i < 9 * (scroll_image_index + 1)) {
             makeAlbum(name, this_key);
         }
     }

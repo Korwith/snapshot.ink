@@ -14,6 +14,11 @@ const data = {
         },
 
         images: {
+            '06/26/24': {
+                name: 'Rock Creek',
+                people: ['Paris'],
+                id: [2024, 2021, 2017, 2015, 2012]
+            },
             '06/13/24': {
                 name: 'Railroad Tracks',
                 people: ['Riley', 'Paris'],
@@ -826,10 +831,9 @@ function loadImages(name) {
     let image_keys = Object.keys(images);
 
     for (var i = 0; i < image_keys.length; i++) {
-        let this_key = image_keys[i];
-        if (i > 12 * scroll_image_index && i <= 12 * (scroll_image_index + 1)) {
+        let this_key = image_keys[i-1];
+        if (i > 9 * scroll_image_index && i <= 9 * (scroll_image_index + 1)) {
             makeAlbum(name, this_key);
-            console.log(this_key);
         }
     }
 

@@ -28,6 +28,11 @@ const data = {
                 name: 'Railroad Tracks',
                 id: [1850, 1848, 1853, 1840, 1843]
             },
+            '06/20/24': {
+                name: 'Downtown Frederick',
+                people: ['Paris'],
+                id: [1730, 1759, 1756, 1699, 1758, 1677, 1676, 1666, 1764]
+            },
             '06/13/24': {
                 name: 'Railroad Tracks',
                 people: ['Riley', 'Paris'],

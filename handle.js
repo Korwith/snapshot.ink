@@ -14,6 +14,12 @@ const data = {
         },
 
         images: {
+            '06/28/24': {
+                name: 'Rock Creek',
+                people: ['Paris'],
+                id: [2151, 2146, 2134, 2133],
+                caption: 'June 28th: One year anniversary with Paris.'
+            },
             '06/26/24': {
                 name: 'Rock Creek',
                 people: ['Paris'],
@@ -395,7 +401,7 @@ const data = {
                 id: [2526, 2527, 2528, 2532]
             }
         },
-    }
+    },
 }
 
 const n_to_month = {

@@ -402,6 +402,33 @@ const data = {
             }
         },
     },
+
+    'Paris': {
+        card: {
+            bio: 'Girlfriend',
+            icon: 'icon/paris.jpg'
+        },
+
+        social: {
+            'instagram': 'https://www.instagram.com/pariiscoolfr/',
+            'youtube': 'https://www.youtube.com/@pariiscoolfr697',
+            'spotify': 'https://open.spotify.com/user/5vaysgic0hrnztyms8eln9uxc',
+        },
+
+        images: {
+            '06/12/24': {
+                name: 'Railroad Tracks',
+                people: ['Thaddeus', 'Riley'],
+                id: [1263, 1274, 1256]
+            },
+
+            '06/07/24': {
+                name: 'North Crossing',
+                people: ['Thaddeus', 'Riley'],
+                id: ['0913', '0795', '0754']
+            }
+        }
+    }
 }
 
 const n_to_month = {
@@ -690,7 +717,7 @@ function photoSelect(event) {
     selected_location = this_data.name;
 }
 
-function hidePhotoSelect() {
+function hidePhotoSelect(event) {
     photo_holder.classList.add('hide');
     selected_location = null;
 }

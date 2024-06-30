@@ -887,7 +887,7 @@ nav.sidebar.hide {
     cursor: pointer;
     background-size: cover;
     position: relative;
-    transition: background-color 0.2s;
+    transition: background-color 0.2s, opacity 0.2s;
 }
 
 .photo_control_holder div::after {
@@ -903,6 +903,11 @@ nav.sidebar.hide {
 
 .photo_control_holder div:hover {
     background-color: rgba(0, 0, 0, 0.6);
+}
+
+.photo_control_holder div.hide {
+    opacity: 0;
+    pointer-events: none;
 }
 
 .photo_back {

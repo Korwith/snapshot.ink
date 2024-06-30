@@ -662,6 +662,21 @@ function shiftPhoto(photo_index) {
     photo.setAttribute('index', photo_index);
     photo_holder_link.setAttribute('href', `media/full/${selected_user}/IMG_${photo_info.id[photo_index]}.jpg`);
     photo.style.backgroundImage = `url(${new_url})`;
+    updateControls(photo_index, photo_info);
+}
+
+function updateControls(photo_index, photo_info) {
+    if (photo_index == 0) {
+        back_photo.classList.add('hide');
+    } else {
+        back_photo.classList.remove('hide');
+    }
+
+    if (photo_index >= photo_info.id.length - 1) {
+        next_photo.classList.add('hide');
+    } else {
+        next_photo.classList.remove('hide');
+    }
 }
 
 function preloadAlbum(album) {
@@ -713,6 +728,7 @@ function photoSelect(event) {
         photo.scrollIntoView({ behavior: 'smooth', block: 'end' });
     }
 
+    updateControls(0, this_data);
     preloadAlbum(this_data);
     selected_location = this_data.name;
 }

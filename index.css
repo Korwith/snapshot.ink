@@ -986,7 +986,7 @@ nav.sidebar.hide {
 }
 
 .open_photo_holder a.hide {
-    display: none;
+    pointer-events: none;
 }
 
 .open_photo_holder span {

@@ -153,6 +153,38 @@ nav.sidebar.hide {
     transform: translateX(-100%);
 }
 
+.website_stats {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    width: calc(100% - 20px);
+    height: 28px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    position: relative;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.website_stats span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: fit-content;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: rgba(255, 255, 255, 0.05);
+    box-sizing: border-box;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;;
+    user-select: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
 .sidebar hr {
     padding: 0;
     height: 1px;
@@ -183,6 +215,10 @@ nav.sidebar.hide {
     color: rgba(255, 255, 255, 0.7);
     box-sizing: border-box;
     border-radius: 12px;
+}
+
+.sidebar hr.nocontent::after {
+    content: unset;
 }
 
 .user_select_menu {
@@ -293,8 +329,8 @@ nav.sidebar.hide {
     gap: 5px;
     overflow-y: auto;
     align-content: flex-start;
-    padding-top: 15px;
     padding-bottom: 15px;
+    padding-top: 15px;
 }
 
 .nav_button {

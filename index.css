@@ -985,6 +985,10 @@ nav.sidebar.hide {
     z-index: 999;
 }
 
+.open_photo_holder a.hide {
+    display: none;
+}
+
 .open_photo_holder span {
     display: flex;
     align-items: center;

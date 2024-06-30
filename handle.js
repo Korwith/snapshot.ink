@@ -701,6 +701,7 @@ function photoSelect(event) {
     photo.setAttribute('date', this_date);
     photo.setAttribute('index', 0);
     photo_holder_link.setAttribute('href', `media/full/${selected_user}/IMG_${first_id}.jpg`);
+    photo_holder_link.classList.remove('hide');
     photo_holder_date.innerHTML = this_date;
     photo_holder_location.innerHTML = this_data.name;
 
@@ -735,6 +736,7 @@ function photoSelect(event) {
 
 function hidePhotoSelect(event) {
     photo_holder.classList.add('hide');
+    photo_holder_link.classList.add('hide');
     selected_location = null;
 }
 exit.addEventListener('mouseup', hidePhotoSelect);

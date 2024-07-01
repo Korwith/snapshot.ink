@@ -472,7 +472,7 @@ nav.sidebar.hide {
     color: rgba(255, 255, 255, 0.7);
 }
 
-.site_ad {
+.alt_site {
     display: flex;
     min-width: calc(250px - 4px);
     width: fit-content;
@@ -488,11 +488,11 @@ nav.sidebar.hide {
     text-decoration: none;
 }
 
-.site_ad.hide {
+.alt_site.hide {
     display: none;
 }
 
-.site_ad::after {
+.alt_site::after {
     content: '';
     position: absolute;
     top: 0;
@@ -505,11 +505,11 @@ nav.sidebar.hide {
     transition: border 0.2s;
 }
 
-.site_ad:hover::after {
+.alt_site:hover::after {
     border: 3px solid white;
 }
 
-.site_ad .icon {
+.alt_site .icon {
     aspect-ratio: 1/1;
     float: 0 0 auto;
     height: calc(100% - 20px);
@@ -518,7 +518,7 @@ nav.sidebar.hide {
     background-image: url(https://www.google.com/s2/favicons?domain=https://www.kircic.org&sz=128);
 }
 
-.site_ad .info {
+.alt_site .info {
     flex: 1;
     height: calc(100% - 10px);
     margin: 5px;
@@ -530,19 +530,19 @@ nav.sidebar.hide {
     padding-right: 5px;
 }
 
-.site_ad .info span {
+.alt_site .info span {
     display: flex;
     height: calc(50% - 5px);
     align-items: center;
 }
 
-.site_ad .info span.ad_name {
+.alt_site .info span.site_name {
     font-weight: 700;
     font-size: 1rem;
     color: white;
 }
 
-.site_ad .info span.ad_text {
+.alt_site .info span.site_text {
     font-weight: 400;
     font-size: 0.95rem;
     color: rgba(255, 255, 255, 0.7);

@@ -459,7 +459,7 @@ const profile_about = profile.querySelector('.about');
 const profile_username = profile_about.querySelector('.username');
 const profile_bio = profile_about.querySelector('.bio');
 const social_holder = document.querySelector('.social');
-const site_ad = document.querySelector('.site_ad');
+const site_ad = document.querySelector('.alt_site');
 
 const all_video = document.querySelector('.all_video');
 const video_holder = document.querySelector('.video_holder');

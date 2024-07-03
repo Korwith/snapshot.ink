@@ -415,8 +415,8 @@ const data = {
 
     'Paris': {
         card: {
-            bio: '♡ Girlfriend',
-            icon: 'icon/paris.jpg'
+            bio: 'Girlfriend ♡',
+            icon: 'icon/paris.png'
         },
 
         social: {

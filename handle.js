@@ -442,12 +442,13 @@ const data = {
 
     'Edin': {
         card: {
-            bio: 'Music Creator',
+            bio: 'Beatmaker',
             icon: 'icon/noneyet.png',
         },
 
         social: {
-            'instagram': 'dolater',
+            'instagram': 'https://www.instagram.com/edin_a15/',
+            'soundcloud': 'https://soundcloud.com/spiffy_beats',
         },
 
         images: {

@@ -438,6 +438,24 @@ const data = {
                 id: ['0913', '0795', '0754']
             }
         }
+    },
+
+    'Edin': {
+        card: {
+            bio: 'Music Creator',
+            icon: 'icon/noneyet.png',
+        },
+
+        social: {
+            'instagram': 'dolater',
+        },
+
+        images: {
+            '06/21/24': {
+                name: 'Downtown Frederick',
+                id: [1020070, 1020063, 1020060, 1020054, 1020051, 1020048, 1020047, 1020103, 1020101]
+            }
+        }
     }
 }
 

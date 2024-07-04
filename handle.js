@@ -448,7 +448,7 @@ const data = {
     'Edin': {
         card: {
             bio: 'Beatmaker',
-            icon: 'icon/noneyet.png',
+            icon: 'icon/crog.png',
         },
 
         social: {

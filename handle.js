@@ -664,7 +664,11 @@ function generateRelatedAlbums(date) {
         this_related_holder.removeAttribute('id');
         bottom_info.appendChild(this_related_holder);
 
+        // TEMP REDUCE LOAD, ADD DYNAMIC LOADING OF THIS LATER
+        let key_world = 0;
         for (var i in matching_location) {
+            key_world++;
+            if (key_world > 8) { continue };
             makeAlbum(selected_user, i, this_flex);
         }
     }
@@ -680,7 +684,11 @@ function generateRelatedAlbums(date) {
         this_related_holder.removeAttribute('id');
         bottom_info.appendChild(this_related_holder);
 
+        // TEMP REDUCE LOAD, ADD DYNAMIC LOADING OF THIS LATER
+        let key_world = 0;
         for (var j in this_array) {
+            key_world++;
+            if (key_world > 8) { continue };
             makeAlbum(selected_user, j, this_flex);
         }
     }

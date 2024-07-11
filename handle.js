@@ -14,6 +14,12 @@ const data = {
         },
 
         images: {
+            '07/10/24': {
+                name: 'Cunningham Falls',
+                people: ['Paris', 'Jeremy'],
+                caption: 'The longest cascading waterfall in Maryland. Located in Thurmont.',
+                id: [2902, 2900, 2898, 2891, 2865, 2842, 2921, 2897, 2889, 2881, 2864, 2917, 2915, 2912, 2875, 2863, 2851]
+            },
             '07/09/24': {
                 name: 'Downtown Frederick',
                 people: ['Paris'],

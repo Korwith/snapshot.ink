@@ -785,6 +785,7 @@ function photoSelect(event) {
 
     if (this_data.caption) {
         photo_holder_caption.innerHTML = this_data.caption;
+        photo_holder_caption.parentElement.classList.remove('hide');
     } else {
         photo_holder_caption.parentElement.classList.add('hide');
     }

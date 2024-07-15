@@ -14,6 +14,10 @@ const data = {
         },
 
         images: {
+            '07/14/24': {
+                name: 'Rose Hill',
+                id: [3043, 3013, 3015, 3019, 3037, 3040, 3008, 3024]
+            },
             '07/10/24': {
                 name: 'Cunningham Falls',
                 people: ['Paris', 'Jeremy'],
@@ -111,7 +115,7 @@ const data = {
                 id: ['0728', '0723', '0720', '0716', '0694']
             },
             '05/25/24': {
-                name: 'Rosehill',
+                name: 'Rose Hill',
                 people: ['Paris'],
                 id: ['0538', '0537', '0533', '0529']
             },
@@ -124,7 +128,7 @@ const data = {
                 id: [73652, 73624, 73720, 73716]
             },
             '04/22/24': {
-                name: 'Rosehill',
+                name: 'Rose Hill',
                 people: ['Paris'],
                 id: [3026, 3028, 3018, 3016, 3029]
             },
@@ -249,7 +253,7 @@ const data = {
                 id: [7991, 7993, 8015],
             },
             '07/20/23': {
-                name: 'Rosehill',
+                name: 'Rose Hill',
                 people: ['Cody', 'Paris'],
                 id: [7933, 7936, 7927, 7918],
             },

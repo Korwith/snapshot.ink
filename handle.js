@@ -14,6 +14,11 @@ const data = {
         },
 
         images: {
+            '07/27/24': {
+                name: 'Weverton Cliffs',
+                people: ['Paris', 'Jeremy'],
+                id: [3521, 3523, 3489, 3579, 3585, 3581, 3475]
+            },
             '07/19/24': {
                 name: 'Rock Creek',
                 id: [3210, 3213, 3208, 3187, 3189, 3199, 3205, 3206]

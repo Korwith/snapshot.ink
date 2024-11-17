@@ -14,8 +14,14 @@ const data = {
         },
 
         images: {
+            '09/21/24': {
+                name: 'Frederick Fair',
+                people: ['Paris', 'Jeremy'],
+                id: [4654, 4661]
+            },
             '09/15/24': {
                 name: 'Frederick Fair',
+                people: ['Paris'],
                 id: ['4591a', '4597a', '4598a']
             },
             '09/13/24': {

@@ -14,6 +14,14 @@ const data = {
         },
 
         images: {
+            '10/27/24': {
+                name: 'Railroad Tracks',
+                id: [5209, 5219, 5212, 5196]
+            },
+            '10/26/24': {
+                name: 'Downtown Frederick',
+                id: [5176, 5190, 5191, 5187]
+            },
             '10/23/24': {
                 name: 'Patomac Commons',
                 people: ['Paris'],

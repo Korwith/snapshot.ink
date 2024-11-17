@@ -231,7 +231,8 @@ nav.sidebar.hide {
     display: flex;
     flex-direction: column;
     gap: 5px;
-    border-bottom-left-radius: 8px;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
     box-sizing: border-box;
     transition: height 0.2s, background-color 0.2s, border 0.2s, min-width 0.2s;
     position: relative;
@@ -320,6 +321,10 @@ nav.sidebar.hide {
     background-size: cover;
     background-image: url(icon/dropdown.svg);
     opacity: 0.9;
+}
+
+.user_select_menu.toggle .username::after {
+    transform: rotate(180deg);
 }
 
 .nav_select {

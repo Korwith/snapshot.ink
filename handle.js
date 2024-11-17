@@ -590,13 +590,8 @@ let selected_user;
 let selected_location;
 
 function handleUserSelect() {
-    let toggle = user_select_menu.classList.contains('toggle');
-
-    if (!toggle) {
-        user_select_menu.classList.add('toggle');
-    } else {
-        user_select_menu.classList.remove('toggle');
-    }
+    let toggle_class = user_select_menu.classList.contains('toggle');
+    user_select_menu.classList.toggle('toggle', !toggle_class);
 }
 user_select.addEventListener('mouseup', handleUserSelect);
 

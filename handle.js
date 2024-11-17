@@ -14,6 +14,10 @@ const data = {
         },
 
         images: {
+            '09/08/24': {
+                name: 'Amber Meadows',
+                id: [4419, 4430, 4436],
+            },
             '08/03/24': {
                 name: 'Washington D.C.',
                 people: ['Paris', 'Jeremy', 'Abiel'],

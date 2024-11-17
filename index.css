@@ -1023,6 +1023,7 @@ nav.sidebar.hide {
 
 .open_photo_holder a {
     pointer-events: all;
+    text-decoration: none;
     z-index: 999;
 }
 

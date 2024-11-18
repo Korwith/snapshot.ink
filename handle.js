@@ -72,12 +72,14 @@ const data = {
             '08/03/24': {
                 name: 'Washington D.C.',
                 people: ['Paris', 'Jeremy', 'Abiel'],
-                id: [4018, 3778, 3796, 3890, 3901, 4012, 4057, 3709, 3840]
+                id: [4018, 3778, 3796, 3890, 3901, 4012, 4057, 3709, 3840],
+                featured: 2
             },
             '07/27/24': {
                 name: 'Weverton Cliffs',
                 people: ['Paris', 'Jeremy'],
-                id: [3521, 3523, 3489, 3579, 3585, 3581, 3475]
+                id: [3521, 3523, 3489, 3579, 3585, 3581, 3475],
+                featured: 1
             },
             '07/26/24': {
                 name: 'Rock Creek',
@@ -919,7 +921,7 @@ function getMonthCount(date, name) {
     return count;
 }
 
-function makeAlbum(name, date, parent) {
+function makeAlbum(name, date, parent, order) {
     let this_data = data[name].images[date];
     let first_preview = this_data.id[0];
     let clone = entry_placeholder.cloneNode(true);
@@ -943,6 +945,12 @@ function makeAlbum(name, date, parent) {
         entry_grid.appendChild(clone);
     } else {
         parent.appendChild(clone);
+    }
+    
+    if (order) {
+        clone.style.order = 1 - order;
+        clone.classList.add('featured');
+        console.log(clone);
     }
 }
 
@@ -1054,11 +1062,23 @@ function loadImages(name) {
     for (var i = 0; i < image_keys.length; i++) {
         let this_key = image_keys[i];
         if (i >= 9 * scroll_image_index && i < 9 * (scroll_image_index + 1)) {
+            if (images[this_key].featured) { continue };
             makeAlbum(name, this_key);
         }
     }
 
     scroll_image_index++;
+}
+
+function loadFeatured(name) {
+    let this_data = data[name];
+    let images = this_data.images;
+    
+    for (var i in images) {
+        let this_day = images[i];
+        if (!this_day.featured) { continue };
+        makeAlbum(name, i, false, this_day.featured);
+    }
 }
 
 function generateTo(month, year) {
@@ -1091,6 +1111,7 @@ function loadPerson(name) {
 
     loadCard(name);
     updateUserSelect(name);
+    loadFeatured(name);
     loadImages(name);
     loadSidebar(name);
 

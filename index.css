@@ -764,6 +764,10 @@ nav.sidebar.hide {
     transition: border 0.2s;
 }
 
+.entry.featured .icon.location {
+    background-image: url(icon/star.svg)
+}
+
 .info_holder {
     position: absolute;
     width: fit-content;

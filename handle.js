@@ -950,7 +950,6 @@ function makeAlbum(name, date, parent, order) {
     if (order) {
         clone.style.order = 1 - order;
         clone.classList.add('featured');
-        console.log(clone);
     }
 }
 

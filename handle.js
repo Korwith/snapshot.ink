@@ -20,6 +20,10 @@ const data = {
                 people: ['Riley', 'Matt'],
                 featured: 1
             },
+            '11/12/24': {
+                name: 'Amber Meadows',
+                id: [5494, 5490, 5498]
+            },
             '10/27/24': {
                 name: 'Railroad Tracks',
                 id: [5209, 5219, 5212, 5196]

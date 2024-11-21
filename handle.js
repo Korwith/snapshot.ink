@@ -14,6 +14,12 @@ const data = {
         },
 
         images: {
+            '11/19/24': {
+                name: 'Whiterock',
+                id: [5629, 5653, 5635, 5636, 5644, 5648, 5657, 5673, 5682],
+                people: ['Riley', 'Matt'],
+                featured: 1
+            },
             '10/27/24': {
                 name: 'Railroad Tracks',
                 id: [5209, 5219, 5212, 5196]
@@ -73,13 +79,13 @@ const data = {
                 name: 'Washington D.C.',
                 people: ['Paris', 'Jeremy', 'Abiel'],
                 id: [4018, 3778, 3796, 3890, 3901, 4012, 4057, 3709, 3840],
-                featured: 2
+                featured: 3
             },
             '07/27/24': {
                 name: 'Weverton Cliffs',
                 people: ['Paris', 'Jeremy'],
                 id: [3521, 3523, 3489, 3579, 3585, 3581, 3475],
-                featured: 1
+                featured: 2
             },
             '07/26/24': {
                 name: 'Rock Creek',

@@ -528,6 +528,11 @@ const data = {
         ],
 
         images: {
+            '11/18/24': {
+                name: 'Mountaindale',
+                id: [7053, 7051, 7050],
+                people: ['Thaddeus', 'Matt']
+            },
             '07/03/24': {
                 name: 'Bikeride',
                 id: [5156, 5157, 5158]
@@ -542,7 +547,6 @@ const data = {
             },
             '02/09/24': {
                 name: "Mountaindale",
-                people: ['Sadie'],
                 id: [2526, 2527, 2528, 2532]
             }
         },

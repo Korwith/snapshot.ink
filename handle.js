@@ -16,7 +16,7 @@ const data = {
         images: {
             '12/23/24': {
                 name: 'Heather Ridge',
-                id: [6461, 6473, 5449]
+                id: [6461, 6473, 6449]
             },
             '12/17/24': {
                 name: 'Rosemont',

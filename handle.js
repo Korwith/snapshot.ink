@@ -14,6 +14,10 @@ const data = {
         },
 
         images: {
+            '12/02/24': {
+                name: 'Amber Meadows',
+                id: [6030, 6029, 6018]
+            },
             '11/30/24': {
                 name: 'Downtown Frederick',
                 id: [5980, 5979, 5961, 5972],

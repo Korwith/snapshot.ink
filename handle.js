@@ -14,6 +14,49 @@ const data = {
         },
 
         images: {
+            '12/30/24': {
+                name: 'Amber Meadows',
+                id: [6714, 6718, 6711],
+                people: ['Paris']
+            },
+            '12/28/24': {
+                name: 'Downtown Frederick',
+                id: [6578, 6573, 6594, 6632, 6608],
+                people: ['Paris'],
+            },
+            '12/23/24': {
+                name: 'Heather Ridge',
+                id: [6461, 6473, 6449]
+            },
+            '12/17/24': {
+                name: 'Rosemont',
+                id: [6272, 6263, 6275, 6277, 6281, 6297],
+                people: ['Riley']
+            },
+            '12/13/24': {
+                name: 'Downtown Frederick',
+                id: [6194, 6171, 6197],
+                people: ['Paris']
+            },
+            '12/02/24': {
+                name: 'Amber Meadows',
+                id: [6030, 6029, 6018]
+            },
+            '11/30/24': {
+                name: 'Downtown Frederick',
+                id: [5980, 5979, 5961, 5972],
+                people: ['Paris']
+            },
+            '11/26/24': {
+                name: 'Rosemont',
+                id: [5858, 5845, 5851, 5854, 5863, 5869, 5881, 5900],
+                people: ['Riley']
+            },
+            '11/23/24': {
+                name: 'Downtown Frederick',
+                id: [5798, 5779, 5769, 5780],
+                people: ['Paris']
+            },
             '11/19/24': {
                 name: 'Whiterock',
                 id: [5629, 5653, 5635, 5636, 5644, 5648, 5657, 5673, 5682],
@@ -35,7 +78,7 @@ const data = {
             '10/23/24': {
                 name: 'Patomac Commons',
                 people: ['Paris'],
-                id: [5126, '5128a', 5129]
+                id: ['5128a', 5126, 5129]
             },
             '10/20/24': {
                 name: 'Amber Meadows',

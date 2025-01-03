@@ -733,10 +733,10 @@ function handleResize() {
 window.onresize = handleResize;
 handleResize();
 
-function timeSelect(event) {
+function timeSelect(event) {    
     let month = event.target.getAttribute('month');
     let year = event.target.getAttribute('year');
-    let first_entry = entry_grid.querySelector(`.entry[month="${month}"][year="${year}"]`);
+    let first_entry = entry_grid.querySelector(`.entry[month="${month}"][year="${year}"]:not(.featured)`);
     if (!first_entry) {
         first_entry = generateTo(month, year);
     };

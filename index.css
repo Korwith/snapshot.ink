@@ -237,6 +237,7 @@ nav.sidebar.hide {
     transition: height 0.2s, background-color 0.2s, border 0.2s, min-width 0.2s;
     position: relative;
     border: 1px solid rgba(0, 0, 0, 0);
+    z-index: 999;
 }
 
 .user_select_menu::after {

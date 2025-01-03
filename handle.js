@@ -938,7 +938,7 @@ function makeAlbum(name, date, parent, order) {
     let clone_date = clone.querySelector('.text.date');
     let clone_title = clone.querySelector('.text.title');
 
-    clone.style.backgroundImage = `url(media/preview/${name}/IMG_${first_preview}.jpg)`;
+    loadBackgroundImage(clone, `media/preview/${name}/IMG_${first_preview}.jpg`);
     clone_date.innerHTML = date;
     clone_title.innerHTML = this_data.name;
     clone.setAttribute('date', date);
@@ -961,6 +961,20 @@ function makeAlbum(name, date, parent, order) {
         clone.style.order = 1 - order;
         clone.classList.add('featured');
     }
+}
+
+function loadBackgroundImage(element, url) {
+    element.classList.add('loading');
+    let attempt = new Image();
+    attempt.onload = function() {
+        element.classList.remove('loading');
+        element.style.backgroundImage = `url(${url})`;
+        attempt.remove();
+    }
+    attempt.onerror = function() {
+        attempt.remove();
+    }
+    attempt.src = url;
 }
 
 function updateUserSelect(name) {

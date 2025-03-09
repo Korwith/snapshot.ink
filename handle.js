@@ -14,6 +14,11 @@ const data = {
         },
 
         images: {
+            '01/19/25': {
+                name: 'Amber Meadows',
+                id: [7053, 7084, 7061, 7091, 7050],
+                people: ['Paris']
+            },
             '01/17/25': {
                 name: 'Railroad Tracks',
                 id: [10004, 10005, 10001, 10000, 10002, 10003],

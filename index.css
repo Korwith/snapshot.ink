@@ -391,6 +391,7 @@ nav.sidebar.hide {
     width: calc(100vw - 300px);
     height: calc(100dvh - 50px);
     overflow-y: auto;
+    scrollbar-width: unset;
     transition: width 0.2s, transform 0.2s;
 }
 

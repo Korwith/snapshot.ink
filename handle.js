@@ -16,7 +16,18 @@ const data = {
         images: {
             '04/23/25': {
                 name: 'Monocacy River',
-                id: [2347, 3457, 8541]
+                id: [2347, 3457, 8541],
+                people: ['Paris', 'Edin']
+            },
+            '03/29/25': {
+                name: 'Downtown',
+                id: [8077, 8078, 8080],
+                people: ['Paris']
+            },
+            '03/28/25' :{
+                name: 'Thurmont',
+                id: [8024, 8022, 8039, 8027],
+                people: ['Riley', 'Paris']
             },
             '03/27/25': {
                 name: 'Rose Hill',

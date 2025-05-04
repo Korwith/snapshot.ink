@@ -14,6 +14,11 @@ const data = {
         },
 
         images: {
+            '03/10/25' :{
+                name: 'Railroad Tracks',
+                id: [7838, 7844, 7854, 7839, 7841],
+                people: ['Paris']
+            },
             '03/08/25': {
                 name: 'Railroad Tracks',
                 id: [7819, 7784, 7800, 7816, 7795, 7813],

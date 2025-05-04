@@ -14,6 +14,15 @@ const data = {
         },
 
         images: {
+            '03/18/25': {
+                name: 'Rose Hill',
+                id: [7958, 7957, 7961, 7962]
+            },
+            '03/12/25': {
+                name: 'Monocacy River',
+                id: [7883, 7877, 7885, 7900, 7906],
+                people: ['Paris']
+            },
             '03/10/25' :{
                 name: 'Railroad Tracks',
                 id: [7838, 7844, 7854, 7839, 7841],

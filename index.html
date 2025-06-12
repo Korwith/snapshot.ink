@@ -11,11 +11,11 @@
     <meta name="author" content="kircic">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#151515">
-    <meta property="og:title" content="snapshot.ink">
+    <meta property="og:title" content="snapshot.ws">
     <meta property="og:description" content="Collection of favorite moments and events.">
     <meta property="og:type" content="webpage">
-    <meta property="og:image" content="https://www.snapshot.ink/icon/favicon.ico">
-    <meta property="og:url" content="https://www.snapshot.ink">
+    <meta property="og:image" content="https://www.snapshot.ws/icon/favicon.ico">
+    <meta property="og:url" content="https://www.snapshot.ws">
     <meta property="og:site_name" content="snapshot.ink">
     <meta name="darkreader-lock">
 </head>
@@ -23,148 +23,68 @@
 <body>
     <header>
         <div class="left_header">
-            <div class="logo">
-                <div class="icon"></div>
-                <span class="title">snapshot.ink</span>
-            </div>
+            <button class="icon"></button>
+            <span>Snapshot</span>
         </div>
 
-        <div class="right_header">    
-            <div class="user_select_menu">
-                <div class="user_select top">
-                    <div class="icon"></div>
-                    <span class="username">--</span>
-                </div>
-            </div>
+        <div class="right_header">
+            <div class="dropdown"></div>
         </div>
     </header>
 
     <nav class="sidebar">
-        <div class="nav_select">    
-            <div class="nav_button profile_button" onclick="profileTop()">
-                <div class="icon"></div>
-                <div class="section">Profile</div>
-            </div>
-        </div>
-
-        <div class="website_stats">
-            <span class='commit_stat'>-- commits</span>
-            <span class='size_stat'>-- GB</span>
-        </div>
+        <button class="month top">Profile</button>
     </nav>
 
-    <div class="content">
-        <div class="card">
-            <div class="profile">
+    <article class="content">
+        <div class="profile">
+            <div class="card">
                 <div class="icon"></div>
-                <div class="about">
-                    <span class="username">--</span>
-                    <span class="bio">--</span>
+                <div class="card_info">
+                    <span class="card_name">Thaddeus</span>
+                    <span class="card_bio">Web Developer</span>
                 </div>
             </div>
 
             <div class="social"></div>
-
-            <a href="https://www.kircic.org" target="_blank" class="alt_site hide">
-                <div class="icon"></div>
-                <div class="info">
-                    <span class="site_name">kircic.org</span>
-                    <span class="site_text">Development Portfolio</span>
-                </div>
-            </a>
-        </div>
-
-        <div class="all_video">
-            <hr class="video_hr">
-            <h2 class="video_header">Videos</h2>
-            <div class="video_holder"></div>
         </div>
 
         <hr>
-        <h2 class="photo_header">Photos</h2>
-        <div class="grid_holder"></div>
-    </div>
 
-    <div class="photo_holder hide">
-        <article class="photo_holder_main">
-            <div class="photo">
-                <div class="photo_text_holder">
-                    <div class="photo_info_holder">
-                        <div class="icon date"></div>
-                        <span class="date">--/--/--</span>
-                    </div>
+        <section class="videos hide">
+            <h1>Videos</h1>
+            <div class="video_scroll"></div>
+        </section>
 
-                    <div class="photo_info_holder featured">
-                        <div class="icon people"></div>
-                        <span class="people">------</span>
-                    </div>
+        <section class="grid">
+            <h1>Photos</h1>
+        </section>
+    </article>
+
+    <article class="photo_holder hide">
+        <div class="frame">
+            <figure class="large_photo" index="0">
+                <div class="info">
+                    <div class="date"></div>
+                    <div class="people"></div>
                 </div>
+                <div class="close"></div>
+                <button class="shift left"></button>
+                <button class="shift right hide"></button>
+                <figcaption></figcaption>
+            </figure>
 
-                <div class="open_photo_holder">
-                    <a target="_blank" class="link hide">
-                        <span>View full resolution</span>
-                        <div class="icon open"></div>
-                    </a>
+            <aside>
+                <div class="photo_header">
+                    <span>Washington DC</span>
+                    <button class="close"></button>
                 </div>
-
-                <div class="photo_control_holder">
-                    <div class="photo_back hide"></div>
-                    <div class="photo_next"></div>
-                </div>
-
-                <div class="mobile exit"></div>
-            </div>
-
-            <div class="photo_side">
-                <div class="top_info">
-                    <div class="location_holder">
-                        <div class="icon"></div>
-                        <span class="location">---------------</span>
-                    </div>
-                    <div class="caption_holder">
-                        <span class="caption">--------</span>
-                    </div>    
-                </div>
-
-                <div class="bottom_info"></div>
-            </div>
-        </article>
-
-        <div class="main exit"></div>
-    </div>
-
-    <!-- Placeholder -->
-    <div class="user_select" id="placeholder">
-        <div class="icon"></div>
-        <span class="username">--</span>
-    </div>    
-
-    <div class="nav_button" id="placeholder">
-        <div class="icon"></div>
-        <div class="section">--</div>
-    </div>
-
-    <div class="entry" id="placeholder">
-        <div class="info_holder">
-            <div class="text_holder">
-                <div class="icon date"></div>
-                <span class="text date">--/--/--</span>
-            </div>
+            </aside>
         </div>
+    </article>
 
-        <div class="title_holder">
-            <div class="icon location"></div>
-            <span class="text title">--</span>
-        </div>
-    </div>
-
-    <div class="related_holder" id="placeholder">
-        <span class="related_title"></span>
-        <div class="related_flex"></div>
-    </div>
-
-    <script src="handle.js"></script>
-    <script src="stats.js"></script>
+    <script src="data.js"></script>
+    <script src="index.js"></script>
 </body>
 
 </html>

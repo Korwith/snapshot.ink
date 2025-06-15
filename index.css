@@ -339,7 +339,7 @@ body.shift article.content {
 .card .card_info span.card_bio {
     color: rgba(255, 255, 255, 0.7);
     font-size: 1.2rem;
-    font-weight: 100;
+    font-weight: 300;
 }
 
 .social {
